@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Bootstrap demo</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Spectral+SC:wght@200;400;600&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="styles/index.css" />
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@300;400;500&display=swap" rel="stylesheet" />
+	<script src="https://kit.fontawesome.com/9f1102c4bf.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="owlcarousel/owl.carousel.min.css">
+	<link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css">
+</head>
+
+<body>
+	<header class="fc-white dosis-font" id="header">
+
+		<div class="child--1 fs-6 d-flex align-items-center justify-content-between px-4 py-3">
+			<div class="fs-small">
+				<span class="px-2 fs-small"><i class="fa-solid fa-location-dot fa-xs"></i> Singapore</span>
+				<span class="px-2 fs-small">English</span>
+				<span class="fs-small"><i class="px-1 fa-solid fa-phone fa-xs fs-small"></i>
+					+65-6983-1020</span>
+			</div>
+			<div class="px-2" style="transform: translateX(-45px)">
+				<img src="images/gucci_logo.png" width="160px" height="26px" alt="" class="logo" />
+			</div>
+			<div>
+				<span class="px-2 fs-small">Sign In</span>
+				<span class="px-2 fs-small"><i class="fa-regular fa-heart"></i></span>
+				<span class="px-2 fs-small"><i class="fa-sharp fa-solid fa-bag-shopping"></i>&nbsp; Bag</span>
+			</div>
+		</div>
+		<div class="child--2 d-flex justify-content-center flex-center pb-2">
+			<span class="text-uppercase mx-3 my-3 fw-bold">gift</span>
+			<span class="text-uppercase mx-3 my-3 fw-bold">what's new</span>
+			<span class="text-uppercase mx-3 my-3 fw-bold">handbags</span>
+			<span class="text-uppercase mx-3 my-3 fw-bold">women</span>
+			<span class="text-uppercase mx-3 my-3 fw-bold">men</span>
+			<span class="text-uppercase mx-3 my-3 fw-bold">children</span>
+			<span class="text-uppercase mx-3 my-3 fw-bold">jewellery & watches</span>
+			<span class="text-uppercase mx-3 my-3 fw-bold">beauty</span>
+			<span class="text-uppercase mx-3 my-3 fw-bold">decor & lifestyle</span>
+		</div>
+
+	</header>
+	<section class="hero-section ">
+		<!-- <div -->
+		<!-- 	class="hero-content text-white d-flex flex-column align-items-center" -->
+		<!-- 	style="min-width: 60%; margin: 0 auto" -->
+		<!-- > -->
+		<!-- 	<p -->
+		<!-- 		class="child--1 text-uppercase ls-sm fw-light no-mp" -->
+		<!-- 		style="font-size: 0.9rem" -->
+		<!-- 	> -->
+		<!-- 		exquisite gucci -->
+		<!-- 	</p> -->
+		<!-- 	<p class="child--2 text-uppercase fs-xl ls-lg no-mp"> -->
+		<!-- 		women's jewellery -->
+		<!-- 	</p> -->
+		<!-- 	<button class="text-uppercase btn-shop py-2 mt-4 px-4">shop now</button> -->
+		<!-- </div> -->
+
+		<!-- Carousel -->
+		<div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="carousel">
+			<div class="carousel-indicators">
+				<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+					aria-current="true" aria-label="Slide 1"></button>
+				<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+					aria-label="Slide 2"></button>
+				<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+					aria-label="Slide 3"></button>
+				<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"
+					aria-label="Slide 4"></button>
+			</div>
+			<div class="carousel-inner">
+				<div class="carousel-item active layout" data-bs-interval="75000">
+					<video autoplay muted loop height="648">
+						<source src="images/y2meta.com-Gucci Gift 2020-(1080p).mp4" type="video/mp4">
+						<source src="movie.ogg" type="video/ogg">
+						Your browser does not support the video tag.
+					</video>
+					<div class="carousel-caption d-none d-md-block mb-5 z-1000 transformY-sm">
+						<!-- <h5>Second slide label</h5> -->
+						<!-- <p> -->
+						<!-- 	Some representative placeholder content for the second slide. -->
+						<!-- </p> -->
+						<p class="child--2 text-uppercase fs-xl ls-lg no-mp">
+							gucci gift
+						</p>
+						<button class="text-uppercase btn-shop py-2 mt-2 px-4">
+							shop now
+						</button>
+					</div>
+				</div>
+				<div class="carousel-item layout" data-bs-interval="6000">
+					<img src="images/HeroBigStandard_Gucci-Exquisite-2023-014_001_Default.jpg" class="d-block w-100" alt="..."
+						style="height: 550px" />
+					<div class="carousel-caption d-none d-md-block mb-5 z-1000">
+						<!-- <h5>Second slide label</h5> -->
+						<!-- <p> -->
+						<!-- 	Some representative placeholder content for the second slide. -->
+						<!-- </p> -->
+						<p class="child--1 text-uppercase ls-sm fw-light no-mp" style="font-size: 0.9rem">
+							exquisite gucci
+						</p>
+						<p class="child--2 text-uppercase fs-xl ls-lg no-mp">
+							women's jewellery
+						</p>
+						<button class="text-uppercase btn-shop py-2 mt-4 px-4">
+							shop now
+						</button>
+					</div>
+				</div>
+				<div class="carousel-item layout" data-bs-interval="4000">
+					<img src="images/HeroBigStandard_Vogue-Exquisite-008-new_001_Default.jpg" class="d-block w-100" alt="..."
+						style="height: 550px" />
+					<div class="carousel-caption d-none d-md-block mb-5 z-1000">
+						<!-- <h5>Second slide label</h5> -->
+						<!-- <p> -->
+						<!-- 	Some representative placeholder content for the second slide. -->
+						<!-- </p> -->
+						<p class="child--1 text-uppercase ls-sm fw-light no-mp" style="font-size: 0.9rem">
+							gucci gift
+						</p>
+						<p class="child--2 text-uppercase fs-xl ls-lg no-mp">
+							women's leathergoods
+						</p>
+						<button class="text-uppercase btn-shop py-2 mt-4 px-4">
+							shop now
+						</button>
+					</div>
+				</div>
+				<div class="carousel-item layout" data-bs-interval="4000">
+					<img src="images/HeroBigStandard_HarryStyles-Nov3-02_001_Default.jpg" class="d-block w-100" alt="..."
+						height="550" />
+					<div class="carousel-caption d-none d-md-block mb-5 z-1000">
+						<!-- <h5>Second slide label</h5> -->
+						<!-- <p> -->
+						<!-- 	Some representative placeholder content for the second slide. -->
+						<!-- </p> -->
+						<p class="child--1 text-uppercase ls-sm fw-light no-mp" style="font-size: 0.9rem">
+							exquisite gucci
+						</p>
+						<p class="child--2 text-uppercase fs-xl ls-lg no-mp">
+							gucci ha ha ha
+						</p>
+						<button class="text-uppercase btn-shop py-2 mt-4 px-4">
+							shop now
+						</button>
+					</div>
+				</div>
+			</div>
+			<button class="carousel-control-prev z-1000" type="button" data-bs-target="#carouselExampleIndicators"
+				data-bs-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Previous</span>
+			</button>
+			<button class="carousel-control-next z-1000" type="button" data-bs-target="#carouselExampleIndicators"
+				data-bs-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Next</span>
+			</button>
+		</div>
+	</section>
+
+	<!-- Carousel products -->
+	<section class="carousel-products mt-4 pt-4 ">
+		<div class="owl-carousel">
+
+			<div class="contents">
+				<div class="child--1 text-center">
+					<img style="width: auto !important;margin: auto;" src="images/Gucci HA HA HA denim jacket.png" alt="" />
+				</div>
+				<div class="child--2">
+					<p class="child--1 text-uppercase fw-light no-mp" style="font-size: 1rem; letter-spacing: 2px">
+						exquisite gucci
+					</p>
+					<p class="child--2 fs-lg ls-sm no-mp" style="color: #313131">
+						Gucci HA HA HA denim jacket
+					</p>
+				</div>
+				<div class="child--3">
+					<button class="text-uppercase btn-products py-2 mt-4 px-4">
+						shop now
+					</button>
+				</div>
+			</div>
+			<div class="contents">
+				<div class="child--1 text-center">
+					<img style="width: auto !important;margin: auto;" src="images/Ophidia GG zip around wallet.png" alt="" />
+				</div>
+				<div class="child--2">
+					<p class="child--1 text-uppercase fw-light no-mp" style="font-size: 1rem; letter-spacing: 2px">
+						gucci gift
+					</p>
+					<p class="child--2 fs-lg ls-sm no-mp" style="color: #313131">
+						Ophidia GG zip around wallet
+					</p>
+				</div>
+				<div class="child--3">
+					<button class="text-uppercase btn-products py-2 mt-4 px-4">
+						shop now
+					</button>
+				</div>
+			</div>
+			<div class="contents">
+				<div class="child--1 text-center">
+					<img style="width: auto !important;margin: auto;" src="images/Ophidia GG mini bag.png" alt="" />
+				</div>
+				<div class="child--2">
+					<p class="child--1 text-uppercase fw-light no-mp" style="font-size: 1rem; letter-spacing: 2px">
+						gucci gift
+					</p>
+					<p class="child--2 fs-lg ls-sm no-mp" style="color: #313131">
+						Ophidia GG mini bag
+					</p>
+				</div>
+				<div class="child--3">
+					<button class="text-uppercase btn-products py-2 mt-4 px-4">
+						shop now
+					</button>
+				</div>
+			</div>
+			<div class="contents">
+				<div class="child--1 text-center">
+					<img style="width: auto !important;margin: auto;" src="images/Ophidia small handbag.png" alt="" />
+				</div>
+				<div class="child--2">
+					<p class="child--1 text-uppercase fw-light no-mp" style="font-size: 1rem; letter-spacing: 2px">
+						gucci gift
+					</p>
+					<p class="child--2 fs-lg ls-sm no-mp" style="color: #313131">
+						Ophidia small handbag
+					</p>
+				</div>
+				<div class="child--3">
+					<button class="text-uppercase btn-products py-2 mt-4 px-4"> shop now </button>
+				</div>
+			</div>
+			<div class="contents">
+				<div class="child--1 text-center">
+					<img style="width: auto !important;margin: auto;" src="images/Women_s GG Gucci Tennis 1977 sneaker.png"
+						alt="" />
+				</div>
+				<div class="child--2">
+					<p class="child--1 text-uppercase fw-light no-mp" style="font-size: 1rem; letter-spacing: 2px">
+						gucci gift
+					</p>
+					<p class="child--2 fs-lg ls-sm no-mp" style="color: #313131">
+						Women's GG Gucci Tennis 1977 sneaker
+					</p>
+				</div>
+				<div class="child--3">
+					<button class="text-uppercase btn-products py-2 mt-4 px-4">
+						shop now
+					</button>
+				</div>
+			</div>
+		</div>
+
+	</section>
+	<section class="lg-img">
+		<img src="images/A model wearing.jpg" width="100%" />
+
+
+		<div class="text-center bg-gray py-5">
+			<p class=" fs-lg ls-sm no-mp" style="color: #313131">
+				Gucci Gift
+			</p>
+			<button class="text-uppercase btn-products py-2 mt-4 px-5" style="font-weight: normal;">
+				shop now
+			</button>
+		</div>
+
+	</section>
+
+	<section class="carousel-products mt-1 text-center" style="padding: 0;">
+		<div class="child--1">
+			<img src="images/An archival design from the 1930s inspired the_yyth.jpg" />
+		</div>
+		<div class="child--2" style="transform: translateY(-90%);">
+			<p class="child--1 text-uppercase fw-light no-mp" style="font-size: 1rem; letter-spacing: 2px">
+				gucci gift
+			</p>
+			<p class="child--2 fs-lg ls-sm no-mp" style="color: #313131">
+				Gucci Savoy medium trolley
+			</p>
+			<button class="text-uppercase btn-products py-2 mt-4 px-5" style="font-weight: normal;">
+				shop now
+			</button>
+		</div>
+	</section>
+
+	<section class="lg-img relative mt-1" style="overflow: hidden;">
+		<img src="./images/HeroBigStandard_GUCCI-GIFT-GIVING-Nov2022-038_001_Default.jpg" style="transform: scale(1.3);"
+			width="100%" />
+
+		<div class="discover p-3">
+			<p style="font-size: 1.5rem;color: #4B4B4B;" class="pt-4">
+				Gucci Gift
+			</p>
+			<div class="link-box pt-3">
+				<a href="#" class="text-uppercase " style="font-size: 1rem;">discover more <i
+						class="fa-solid fa-chevron-right"></i></a>
+			</div>
+		</div>
+	</section>
+
+
+	<footer class="container-fluid mt-4">
+		<div>Hello World!</div>
+	</footer>
+
+
+	<!-- Scripts -->
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+		crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.6.1.min.js"
+		integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+	<script src="owlcarousel/owl.carousel.min.js"></script>
+
+
+	<script>
+		$(document).ready(function () {
+			$('.owl-carousel').owlCarousel({
+				center: true,
+				items: 1,
+				loop: true,
+				margin: 0,
+				autoplay: true,
+				autoplayTimeout: 5000,
+				autoplayHoverPause: true,
+			});
+		});
+
+		window.addEventListener("scroll", function () {
+			const header = document.getElementById('header');
+			header.classList.toggle("sticky", window.scrollY > 100);
+		})
+	</script>
+
+</body>
+
+</html>

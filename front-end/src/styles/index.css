@@ -1,0 +1,394 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-size: 1rem;
+	/* font-family: "Dosis", sans-serif; */
+	font-family: 'Spectral SC', serif;
+
+
+}
+
+.dosis-font {
+
+	font-family: "Dosis", sans-serif;
+
+}
+
+.transformY-sm {
+	transform: translateY(-20%);
+}
+
+video {
+	object-fit: cover;
+	height: 550px;
+	width: 100%;
+}
+
+.no-mp {
+	margin: 0;
+	padding: 0;
+}
+
+.fs-small {
+	font-size: 0.8rem;
+}
+
+.fs-xl {
+	font-size: 4rem;
+}
+
+.fs-lg {
+	font-size: 2.5rem;
+}
+
+.ls-lg {
+	letter-spacing: 7px;
+}
+
+.ls-sm {
+	letter-spacing: 4px;
+}
+
+.fw-regular {
+	font-weight: 400;
+}
+
+.fw-light {
+	font-weight: 300;
+}
+
+.fw-bold {
+	font-weight: 600;
+}
+
+.fc-white {
+	color: #e5dfd9;
+}
+
+/* Header  */
+header {
+	background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0));
+	transition: 0.3s;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 10;
+}
+
+#header.one-color {
+	background-color: #1b1b1b;
+}
+
+
+.child--1 {
+	transition: 0.5s;
+}
+
+#header.sticky {
+	background-color: #1b1b1b;
+}
+
+#header.sticky .child--1 {
+
+	padding: 0 !important;
+	transform: translateY(-300px);
+}
+
+.child--2 {
+	transition: 0.5s;
+}
+
+#header.sticky .child--2 {
+	padding: 0 !important;
+	transform: translateY(-10px);
+}
+
+/* #header.sticky .child--3>* { */
+/* 	margin-top: -2 !important; */
+/* 	margin-bottom: -3 !important; */
+/* } */
+
+
+
+
+header:hover {
+	background: #1b1b1b;
+	color: #e5dfd9;
+}
+
+/* Logo gucci */
+header .logo {
+	filter: invert(1);
+}
+
+/* Hero-bg */
+.hero-section {
+	min-width: 100%;
+	min-height: 75vh;
+	position: relative;
+}
+
+.z-1000 {
+	z-index: 1000;
+}
+
+.layout {
+	position: relative;
+}
+
+.relative {
+	position: relative;
+}
+
+.layout::before {
+	background: rgba(0, 0, 0, 0.58);
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	content: "";
+}
+
+.bg-gray {
+	background-color: #e7e7e7;
+}
+
+.btn-lg {
+	padding: 2rem 4rem;
+}
+
+/* .hero-section::before { */
+/* 	background: rgba(0, 0, 0, 0.3); */
+/* 	position: absolute; */
+/* 	width: 100%; */
+/* 	height: 100%; */
+/* 	z-index: 2; */
+/* 	content: ""; */
+/* } */
+/* .hero-section::after { */
+/* 	background-image: url("../images/HeroBigStandard_Gucci-Exquisite-2023-014_001_Default.jpg"); */
+/* 	background-size: cover; */
+/* 	background-repeat: no-repeat; */
+/* 	position: absolute; */
+/* 	top: 0; */
+/* 	left: 0; */
+/* 	content: ""; */
+/* 	width: 100%; */
+/* 	height: 100%; */
+/* 	z-index: -1; */
+/* } */
+.hero-section .hero-content {
+	position: absolute;
+	top: 60%;
+	left: 55%;
+	transform: translate(-60%, -50%);
+	z-index: 10;
+}
+
+/* button */
+.btn-shop {
+	background: rgba(0, 0, 0, 0.5);
+	border: 2px solid #fff;
+	color: #fff;
+	font-size: 0.95rem;
+	/* transition: 0.3s; */
+}
+
+.btn-products {
+	color: #e5dfd9;
+	font-size: 0.95rem;
+	background: #1b1b1b;
+	border: none;
+}
+
+.btn-products:hover {
+	background: #313131;
+}
+
+.btn-shop:hover {
+	background: #1b1b1b;
+	border: 2px solid #1b1b1b;
+}
+
+/* Carouesl products */
+.carousel-products {
+	width: 98% !important;
+	min-height: 115vh;
+	background-color: #e7e7e7;
+	text-align: center;
+	margin: 1rem auto 0 auto !important;
+}
+
+.section-img {
+	width: 98% !important;
+	min-height: 115vh;
+	background-color: #e7e7e7;
+	margin: 1rem auto 0 auto !important;
+
+}
+
+.lg-img {
+	width: 98%;
+	margin: 0 auto;
+}
+
+/* link box */
+.discover {
+	display: inline-block;
+	width: 200px;
+	height: 200px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 10;
+	background-color: #F5F5F5;
+	text-align: center;
+	opacity: 0.7;
+
+}
+
+.link-box a {
+	text-decoration: none;
+}
+
+.link-box a:link,
+.link-box a:active {
+	color: #1b1b1b;
+}
+
+.link-box a:hover {
+	color: #999;
+}
+
+
+/* Footer */
+footer {
+	background-color: #1B1B1B;
+	margin: 0;
+	color: #999;
+}
+
+
+/* Items section */
+.items-section {
+	margin-top:13rem;
+}
+
+.items-section .item {
+	position: relative;
+	height: 316px;
+}
+
+.items-section .item .item-img {
+	top: 0;
+	left: 0;
+	position: absolute;
+	z-index: 10;
+}
+.item-img, .item-detail {
+	width: 99.9%;
+}
+
+.items {
+	margin-top: 1.05rem !important;
+}
+
+.item-img img, .item-detail img {
+	width: 99.9%;
+}
+.items-section .item .item-detail {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -10;
+	display: none;
+	padding-bottom: 2rem;
+}
+
+.item-detail {
+	background-color: #fff;
+}
+
+
+.items-section .item:hover .item-img {
+	width: 100%;
+	z-index: -10;
+}
+.items-section .item:hover .item-detail {
+	z-index: 15;
+	/* height: 500px; */
+
+	display:block;
+}
+
+.item-content .item-price {
+	font-weight: 300;
+}
+
+.item-detail-link:link,
+.item-detail-link:visited {
+	text-decoration: none;
+	color: #1b1b1b;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 0.8rem;
+}
+
+.item-detail-link:hover,
+.item-detail-link:active {
+	color: #a09e9e;
+
+}
+
+/* REGISTER PAGE */
+.register-section {
+	padding-top:12rem;
+	text-align: center;
+	background-color: #e7e7e7;
+	min-height: 110vh;
+}
+.register-section .accounts-container {
+	width: 500px;
+	margin: 2.5rem auto;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.register-section .another-account {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 1rem 1rem;
+	padding-right: 4.5rem;
+	
+	border: 1px solid #1b1b1b;
+	background-color: #fff;
+	
+}
+
+.register-section .another-account:hover {
+	color:#999;
+	border: 1px solid #999;
+}
+
+.register-section .accounts-container .content {
+	font-size: 1.3rem;
+}
+
+.register-section .another-account .icon{
+padding-right: 1.5rem;
+}
+.register-section .another-account .icon img{
+	width: 24px;
+	height: 24px;
+
+}
+.register-section .another-account .content {
+	font-size: 1.1rem;
+	text-transform:uppercase;
+}
