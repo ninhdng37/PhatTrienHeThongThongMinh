@@ -115,8 +115,13 @@
           password or create a profile if you are new.
         </p>
 
-        <form action="#" class="d-none" style="width: 400px; margin: 2rem auto">
-          <div class="form-floating mb-3 groteskFont" id="email-form">
+        <form
+          action="#"
+          class=""
+          style="width: 400px; margin: 2rem auto"
+          id="email-form"
+        >
+          <div class="form-floating mb-3 groteskFont">
             <input
               type="email"
               class="form-control no-radius"
@@ -124,11 +129,18 @@
               placeholder="name@example.com"
             />
             <label for="floatingInput" style="font-weight: 300">EMAIL*</label>
-            <button class="brown-btn btn no-radius mt-3 py-3">continue</button>
+            <button type="submit" class="brown-btn btn no-radius mt-3 py-3">
+              continue
+            </button>
           </div>
         </form>
 
-        <form action="#" style="width: 400px; margin: 2rem auto" id="full-form">
+        <form
+          action="#"
+          class="d-none"
+          style="width: 400px; margin: 2rem auto"
+          id="full-form"
+        >
           <span
             class="groteskFont d-block my-2"
             style="text-align: left; font-weight: 300; font-size: 0.9rem"
@@ -265,6 +277,16 @@
         const header = document.getElementById("header");
         header.classList.toggle("sticky", window.scrollY > 100);
       });
+
+      const emailForm = document.getElementById("email-form");
+      const fullForm = document.getElementById("full-form");
+
+      const emailFormSubmit = function () {
+        console.log("sas");
+        emailForm.classList.toggle("d-none");
+        fullForm.classList.toggle("d-none");
+      };
+      emailForm.onsubmit = emailFormSubmit;
     </script>
   </body>
 </html>
