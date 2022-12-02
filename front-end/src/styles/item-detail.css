@@ -344,3 +344,115 @@ position: relative;
   opacity:0.4;
 }
 
+/* You may also like*/
+.you-also-like-section {
+  margin: 4rem auto;
+}
+
+.you-also-like-section h5 {
+  text-align: center;
+  font-family: 'groteskTest';
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+}
+.you-also-like-section .carousel {
+  padding: 0 2rem;
+  position: relative;
+}
+
+.carousel .prev-arrow {
+position: absolute;
+top: 50%;
+left: 0;
+transform: translate(10%,-50%);
+z-index: 10;
+padding:0;
+margin:0;
+border: none !important;
+}
+
+
+.carousel .next-arrow {
+  position: absolute;
+  top:50%;
+  right:0;
+  transform: translate(-20%, -50%);
+  z-index: 10;
+  border: none !important;
+  padding:0;
+  margin:0;
+}
+
+.item {
+  position: relative;
+  background-color: #e7e7e7;
+  margin-right:0.9rem;
+}
+
+.item a:link,
+.item a:visited {
+  text-decoration: none;
+}
+
+
+.item .item-img--1 {
+  z-index:1;
+  position: relative;
+}
+
+.item .item-img--2 {
+  position: absolute;
+  left: 0;
+  top:0;
+  z-index: 2;
+  opacity: 0;
+  transition: 0.5s;
+  background-color: #fff;
+}
+
+.item-img--1 img {
+  width:308px;
+}
+.item-img--2 img {
+  width:308px;
+}
+
+.item .item-img--2:hover {
+  z-index:5;
+  opacity: 1;
+}
+
+.item-content .item-price {
+  font-weight: 300;
+  color: #4b4b4b;
+  font-size: 1.2rem;
+  
+}
+
+.item-content {
+  background-color: #fff;
+  margin: 0 !important;
+  padding-top: 2rem;
+  text-align: center;
+}
+
+.item-content .item-name {
+  color: #313131;
+  font-family: 'groteskTest';
+}
+
+.item-detail-link:link,
+.item-detail-link:visited {
+  text-decoration: none;
+  color: #1b1b1b;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 0.8rem;
+  
+}
+
+.item-detail-link:hover,
+.item-detail-link:active {
+  color: #a09e9e;
+}
+
