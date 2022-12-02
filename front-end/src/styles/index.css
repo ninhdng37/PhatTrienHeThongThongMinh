@@ -139,11 +139,6 @@ header {
   transform: translateY(-10px);
 }
 
-/* #header.sticky .child--3>* { */
-/* 	margin-top: -2 !important; */
-/* 	margin-bottom: -3 !important; */
-/* } */
-
 header:hover {
   background: #1b1b1b;
   color: #e5dfd9;
@@ -190,26 +185,7 @@ header .logo {
   padding: 2rem 4rem;
 }
 
-/* .hero-section::before { */
-/* 	background: rgba(0, 0, 0, 0.3); */
-/* 	position: absolute; */
-/* 	width: 100%; */
-/* 	height: 100%; */
-/* 	z-index: 2; */
-/* 	content: ""; */
-/* } */
-/* .hero-section::after { */
-/* 	background-image: url("../images/HeroBigStandard_Gucci-Exquisite-2023-014_001_Default.jpg"); */
-/* 	background-size: cover; */
-/* 	background-repeat: no-repeat; */
-/* 	position: absolute; */
-/* 	top: 0; */
-/* 	left: 0; */
-/* 	content: ""; */
-/* 	width: 100%; */
-/* 	height: 100%; */
-/* 	z-index: -1; */
-/* } */
+
 .hero-section .hero-content {
   position: absolute;
   top: 60%;
@@ -262,6 +238,23 @@ header .logo {
 .lg-img {
   width: 98%;
   margin: 0 auto;
+}
+
+.owl-carousel {
+  position: relative;
+
+}
+
+.owl-nav {
+position: absolute;
+transform: translate(-50%,-50%);
+top:50%;
+left:50%;
+display: flex;
+z-index: 1000;
+justify-content: space-between;
+padding: 0 2rem;
+width:100%;
 }
 
 /* link box */
