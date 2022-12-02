@@ -37,9 +37,11 @@
       type="text/css"
       href="./styles/slick/slick/slick-theme.css"
     />
+    <link rel="stylesheet" href="./styles/item-detail.css" />
   </head>
 
   <body>
+    <div class="layout"></div>
     <header class="fc-white dosis-font" id="header">
       <div
         class="child--1 fs-6 d-flex align-items-center justify-content-between px-4 py-3"
@@ -113,6 +115,27 @@
         <h6>Double G cotton poplin shirt</h6>
         <div class="money groteskFont">C$ &nbsp;&nbsp;1,005</div>
         <form action="#" method="post">
+          <div class="color-container">
+            <div class="color-circus"></div>
+            <button class="btn color-name-container" type="button">
+              <span class="color-name">black</span>
+              <span class="icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-chevron-down"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"
+                  />
+                </svg>
+              </span>
+            </button>
+          </div>
           <div class="size-container">
             <select
               class="form-select select-size no-radius"
@@ -150,17 +173,67 @@
       </div>
     </section>
 
+    <section class="item-detail-section container-fluid">
+      <div class="scroll-container">
+        <div class="left">
+          <div class="variation">
+            <p class="groteskFont" style="font-size: 0.8rem">VARIATION (2)</p>
+            <ul class="variation-list">
+              <li>
+                <a href="#">
+                  <img
+                    src="./images/men-shirts/men-shirts-detail/black-shirt/variation/black-shirt.png"
+                    alt=""
+                  />
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <img
+                    src="./images/men-shirts/men-shirts-detail/black-shirt/variation/dark-blue-shirt.png"
+                    alt=""
+                  />
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="right groteskFont">
+          <div class="item-detail">
+            <div class="img">
+              <img
+                src="./images/men-shirts/men-shirts-detail/black-shirt/black-shirt-item-detail.jpg"
+                class="img"
+                alt=""
+              />
+            </div>
+            <div class="item-detail-content">
+              <h6>PRODUCT DETAILS</h6>
+              <p class="content groteskFont">
+                Socialites from the 1970s represent a strong source of
+                inspiration for Alessandro Michele, resulting in a series of
+                tailored looks. Bold new color palettes mix with archival
+                details and show the long-standing tradition of the House. This
+                crisp cotton shirt has a subtle Double G embroidery detail.
+              </p>
+              <ul class="detail-list">
+                <li>Black cotton</li>
+                <li>Double G embroidery</li>
+                <li>Long sleeves</li>
+                <li>Point collar</li>
+                <li>Mother of pearl buttons</li>
+                <li>Made in Italy</li>
+                <li>The product shown in this image is a size 15++</li>
+                <li>Fabric: 100% Cotton.</li>
+                <li>Embroidery: 100% Polyester.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <footer class="container-fluid mt-4">
-      <div>Hello World!</div>
-      <div>Hello World!</div>
-      <div>Hello World!</div>
-      <div>Hello World!</div>
-      <div>Hello World!</div>
-      <div>Hello World!</div>
-      <div>Hello World!</div>
-      <div>Hello World!</div>
-      <div>Hello World!</div>
-      <div>Hello World!</div>
       <div>Hello World!</div>
     </footer>
 
@@ -360,13 +433,7 @@
         slidesToScroll: 1,
         arrows: true,
         draggable: false,
-        // variableWidth: true,
       });
-      window.addEventListener("scroll", function () {
-        const header = document.getElementById("header");
-        header.classList.toggle("sticky", window.scrollY > 100);
-      });
-
       const measureNavChildJquery = $(".measure-nav").children();
       $(".measuring-tips-content").addClass("d-none");
 
@@ -380,6 +447,39 @@
           $(".tops-content").removeClass("d-none");
         } else $(".measuring-tips-content").removeClass("d-none");
       });
+
+      // event orruring when clicking to chose other variations
+      const layout = $(".layout");
+      const scrollContainer = $(".scroll-container");
+      const icon = $(".icon");
+      const upArrow =
+        '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-up" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z"/></svg>';
+      const downArrow =
+        '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>';
+      $(".color-name-container").click(() => {
+        layout.addClass("active");
+        scrollContainer.addClass("active");
+
+        icon.html(upArrow);
+      });
+
+      layout.click(() => {
+        layout.removeClass("active");
+        scrollContainer.removeClass("active");
+        icon.html(downArrow);
+      });
+
+      // event occuring when scroll the page
+      window.addEventListener("scroll", function () {
+        const header = document.getElementById("header");
+        header.classList.toggle("sticky", window.scrollY > 100);
+        if (layout.hasClass("active")) {
+          layout.removeClass("active");
+          scrollContainer.removeClass("active");
+          icon.html(downArrow);
+        }
+      });
     </script>
+    <script src="./scripts/item-detail.js"></script>
   </body>
 </html>
