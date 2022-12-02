@@ -411,10 +411,16 @@ border: none !important;
 }
 
 .item-img--1 img {
-  width:308px;
+  /* width:308px; */
+  width: 100%;
+}
+
+.item-img--2 {
+  width: 100%;
 }
 .item-img--2 img {
-  width:308px;
+  /* width:308px; */
+  width: 100%;
 }
 
 .item .item-img--2:hover {
