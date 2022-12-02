@@ -363,6 +363,12 @@ footer {
   color: #a09e9e;
 }
 
+.owl-carousel.items-carousel .owl-nav {
+  transform: translate(-50%, -50%);
+  top:40%;
+  padding: 0 0.5rem;
+}
+
 /* REGISTER PAGE */
 .register-section {
   padding: 12rem 0rem;
