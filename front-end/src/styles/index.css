@@ -106,6 +106,20 @@ video {
   font-weight: 400 !important;
 }
 
+.btn-hover:hover {
+  background-color: #1b1b1bdd !important;
+}
+a:link, a:visited {
+  color:#e5dfd9 !important;
+  text-decoration: none;
+  display: inline-block;
+  padding: 1rem;
+}
+
+a:hover, a:active {
+  color: #fff !important;
+}
+
 /* Loading animation */
 @keyframes loading-animation {
   0% {
@@ -159,6 +173,11 @@ header {
 
 .child--1 {
   transition: 0.5s;
+  padding: 1rem 3rem;
+}
+
+.child--1 div span {
+  margin: 0 1.2rem;
 }
 
 #header.sticky {
@@ -166,8 +185,8 @@ header {
 }
 
 #header.sticky .child--1 {
-  padding: 0 !important;
-  transform: translateY(-300px);
+  /* padding: 0 !important; */
+  /* transform: translateY(-300px); */
 }
 
 .child--2 {
@@ -175,8 +194,8 @@ header {
 }
 
 #header.sticky .child--2 {
-  padding: 0 !important;
-  transform: translateY(-10px);
+  /* padding: 0 !important; */
+  /* transform: translateY(-10px); */
 }
 
 header:hover {

@@ -459,3 +459,146 @@ border: none !important;
   color: #a09e9e;
 }
 
+/*  Bag style */
+#popover-test {
+  width: 40%;
+  display: inline-block;
+  max-width: 400px;
+  position: fixed;
+  top:55px;
+  right:30px;
+  background-color: #fff;
+  border: 1px solid #c4c4c4;
+  box-shadow: 0 0 10px rgb(0 0 0 / 10%);
+  z-index: 1000;
+  z-index: 1;
+  transform: translateY(-500px);
+  opacity: 0;
+  transition: 0.5s;
+}
+
+#popover-test.active {
+  opacity: 1; 
+  transform: translateY(20px);
+  z-index: 1000;
+
+
+}
+
+
+#popover-test::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  background-color: #fff;
+  transform: translate(-60px,-5px) rotate(45deg);
+  /* border: 1px solid #c4c4c4; */
+  z-index: 1;
+}
+
+#popover-test h6 {
+  text-align: center;
+  font-size: 1rem;
+  font-family: 'groteskTest';
+  border-bottom: 1px solid #e7e7e7;
+  padding: 1rem 0;
+  color: #4b4b4b;
+}
+
+#popover-test .detail-list {
+  list-style-type: none;
+  margin:0;
+  padding:0;
+  height: 200px;
+}
+
+#popover-test .detail-list.scroll {
+  overflow-y: scroll;
+}
+#popover-test .item-img {
+  width: 150px;
+
+}
+#popover-test li {
+  display: flex;
+  background-color: #fff;
+  border-bottom: 1px solid #e7e7e7;
+  margin: 0 .75rem;
+  padding-top: 0.5rem;
+}
+
+#popover-test ul.detail-list li:last-child {
+  border-bottom: 1px solid transparent;
+}
+
+#popover-test .item-content {
+text-align: left;
+padding-top:0;
+margin-left: 1rem !important;
+color: #999;
+
+}
+
+#popover-test .item-name {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #313131;
+}
+
+#popover-test .quantity,
+#popover-test .price,
+#popover-test .size {
+  font-size:0.75rem;
+  font-family: 'groteskTest';
+}
+
+#popover-test .total {
+  display:flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 2rem 0;
+  border-top: 1px solid #e7e7e7;
+  border-bottom: 1px solid #e7e7e7;
+}
+
+#popover-test .total-left,
+#popover-test .total-money,
+#popover-test .include {
+  font-family: 'groteskTest';
+  color: #313131;
+  margin:0;
+}
+
+#popover-test .total-money {
+  font-size: 1.2rem;
+  text-align: right;
+}
+
+#popover-test .include {
+font-size: 1.2rem;
+font-weight: 300;
+}
+
+
+#popover-test .total-left span {
+  font-style: italic;
+  font-family: serif;
+  font-size: 1.1rem;
+  font-weight: 200;
+}
+
+#popover-test .view-bag-checkout {
+  padding: 1.5rem;
+}
+#popover-test .view-bag {
+  text-decoration: none;
+  color:#1b1b1b !important;
+  display: block;
+  text-align: center;
+  margin-bottom: 0.8rem;
+  padding: 0;
+}
