@@ -41,6 +41,9 @@
   </head>
 
   <body>
+    <div class="loading-animation">
+      <img src="./images/animation/loading-black-2x.gif" alt="" />
+    </div>
     <div class="layout"></div>
     <header class="fc-white dosis-font" id="header">
       <div
@@ -116,7 +119,7 @@
         <div class="money groteskFont">C$ &nbsp;&nbsp;1,005</div>
         <form action="#" method="post">
           <div class="color-container">
-            <div class="color-circus"></div>
+            <div class="color-circus" style="background-color: #000"></div>
             <button class="btn color-name-container" type="button">
               <span class="color-name">black</span>
               <span class="icon">
@@ -188,7 +191,7 @@
                 </a>
               </li>
               <li>
-                <a href="#">
+                <a href="item-detail-2.html">
                   <img
                     src="./images/men-shirts/men-shirts-detail/black-shirt/variation/dark-blue-shirt.png"
                     alt=""
@@ -521,7 +524,7 @@
       type="text/javascript"
       src="./styles/slick/slick/slick.min.js"
     ></script>
-
+    <script src="./scripts/loading-animation.js"></script>
     <script>
       $(".item-detail-carousel").slick({
         slidesToShow: 2,

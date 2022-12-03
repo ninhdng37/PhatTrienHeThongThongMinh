@@ -67,7 +67,6 @@ align-items: center;
 .color-container .color-circus {
   width: 30px;
   height: 30px;
-  background-color: #000;
   border-radius: 50%;
   margin-right:0.2rem;
   border: 0.5px solid #fff;
@@ -321,9 +320,7 @@ padding: 0 !important;
   position: relative;
 }
 
-body {
-position: relative;
-}
+
 
 .layout {
   position: relative;
