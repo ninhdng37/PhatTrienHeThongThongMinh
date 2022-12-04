@@ -110,14 +110,14 @@ video {
   background-color: #1b1b1bdd !important;
 }
 a:link, a:visited {
-  color:#e5dfd9 !important;
+  color:#e5dfd9;
   text-decoration: none;
   display: inline-block;
   padding: 1rem;
 }
 
 a:hover, a:active {
-  color: #fff !important;
+  color: #fff;
 }
 
 /* Loading animation */

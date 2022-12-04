@@ -405,6 +405,7 @@ border: none !important;
   opacity: 0;
   transition: 0.5s;
   background-color: #fff;
+  padding-top: 1rem;
 }
 
 .item-img--1 img {
