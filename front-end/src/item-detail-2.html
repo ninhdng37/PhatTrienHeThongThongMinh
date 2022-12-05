@@ -10,7 +10,6 @@
       href="https://fonts.googleapis.com/css2?family=Spectral+SC:wght@200;400;600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles/index.css" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -37,6 +36,7 @@
       type="text/css"
       href="./styles/slick/slick/slick-theme.css"
     />
+    <link rel="stylesheet" href="styles/index.css" />
     <link rel="stylesheet" href="./styles/item-detail.css" />
   </head>
 
@@ -69,25 +69,34 @@
           />
         </div>
         <div>
-          <a href="#" class="fs-small">Sign In</a>
+          <a href="#" class="fs-small"
+            ><span class="signin-popover m-0">Sign In</span></a
+          >
           <a href="#" class="fs-small"><i class="fa-regular fa-heart"></i></a>
-          <a href="#" class="fs-small" id="bag-popover" data-bs-toggle="popover"
+          <a href="#" class="fs-small bag-popover" data-bs-toggle="popover"
             ><i class="fa-sharp fa-solid fa-bag-shopping"></i>&nbsp; Bag</a
           >
         </div>
       </div>
-      <div class="child--2 d-flex justify-content-center flex-center pb-2">
-        <span class="text-uppercase mx-3 my-3 fw-bold">gift</span>
-        <span class="text-uppercase mx-3 my-3 fw-bold">what's new</span>
-        <span class="text-uppercase mx-3 my-3 fw-bold">handbags</span>
-        <span class="text-uppercase mx-3 my-3 fw-bold">women</span>
-        <span class="text-uppercase mx-3 my-3 fw-bold">men</span>
-        <span class="text-uppercase mx-3 my-3 fw-bold">children</span>
-        <span class="text-uppercase mx-3 my-3 fw-bold"
-          >jewellery & watches</span
-        >
-        <span class="text-uppercase mx-3 my-3 fw-bold">beauty</span>
-        <span class="text-uppercase mx-3 my-3 fw-bold">decor & lifestyle</span>
+      <div class="child--2 pb-2">
+        <a href="#" class="text-uppercase">gift</a>
+        <a href="#" class="text-uppercase">what's new</a>
+        <a href="#" class="text-uppercase">handbags</a>
+        <a href="#" class="text-uppercase">women</a>
+        <a href="#" class="text-uppercase">men</a>
+        <a href="#" class="text-uppercase">children</a>
+        <a href="#" class="text-uppercase">jewellery & watches</a>
+        <a href="#" class="text-uppercase">beauty</a>
+        <a href="#" class="text-uppercase">decor & lifestyle</a>
+        <div id="user-sticky">
+          <a href="#" class="fs-small"
+            ><i class="fa-regular fa-user signin-popover"></i
+          ></a>
+          <a href="#" class="fs-small"><i class="fa-regular fa-heart"></i></a>
+          <a href="#" class="fs-small bag-popover" data-bs-toggle="popover"
+            ><i class="fa-sharp fa-solid fa-bag-shopping"></i>&nbsp;</a
+          >
+        </div>
       </div>
     </header>
     <section class="hero-section">
@@ -514,7 +523,7 @@
     </div>
 
     <!-- TEST POPOVER -->
-    <div id="popover-test">
+    <div id="bag-detail-popover" class="my-popover">
       <h6>Shopping Bag</h6>
       <div>
         <ul class="detail-list scroll">
@@ -565,6 +574,22 @@
         </div>
       </div>
     </div>
+
+    <!-- Sign in Popover -->
+    <div id="signin-popover" class="my-popover">
+      <div class="sign-in">
+        <!-- Phần này để rảnh thì làm tiếp  -->
+        <div class="carousel-text">
+          <div>Save you favorite item</div>
+        </div>
+        <button class="btn brown-btn no-radius white-btn" type="button">
+          create my gucci account
+        </button>
+      </div>
+      <div class="register">
+        <button class="btn brown-btn no-radius" type="button">sign in</button>
+      </div>
+    </div>
     <!-- Scripts -->
 
     <script
@@ -582,72 +607,8 @@
       src="./styles/slick/slick/slick.min.js"
     ></script>
     <script src="./scripts/loading-animation.js"></script>
-    <script>
-      $(".item-detail-carousel").slick({
-        slidesToShow: 2,
-        slidesToScroll: 1,
-        arrows: true,
-        draggable: false,
-      });
-      const measureNavChildJquery = $(".measure-nav").children();
-      $(".measuring-tips-content").addClass("d-none");
 
-      measureNavChildJquery.click(function (e) {
-        measureNavChildJquery.removeClass("active");
-        e.target.classList.add("active");
-        eId = e.target.id;
-
-        $(".measure-tips-content").children().addClass("d-none");
-        if (eId == "child-1") {
-          $(".tops-content").removeClass("d-none");
-        } else $(".measuring-tips-content").removeClass("d-none");
-      });
-
-      // event orruring when clicking to chose other variations
-      const layout = $(".layout");
-      const scrollContainer = $(".scroll-container");
-      const icon = $(".icon");
-      const upArrow =
-        '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-up" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z"/></svg>';
-      const downArrow =
-        '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>';
-      $(".color-name-container").click(() => {
-        layout.addClass("active");
-        scrollContainer.addClass("active");
-
-        icon.html(upArrow);
-      });
-
-      layout.click(() => {
-        layout.removeClass("active");
-        scrollContainer.removeClass("active");
-        icon.html(downArrow);
-      });
-
-      // event occuring when scroll the page
-      window.addEventListener("scroll", function () {
-        const header = document.getElementById("header");
-        header.classList.toggle("sticky", window.scrollY > 100);
-        if (layout.hasClass("active")) {
-          layout.removeClass("active");
-          scrollContainer.removeClass("active");
-          icon.html(downArrow);
-        }
-      });
-
-      // you may also like
-      $(".carousel").slick({
-        infinite: true,
-        slidesToShow: 4,
-        slidesToScroll: 1,
-        arrows: true,
-        nextArrow:
-          '<button type="button" class="btn next-arrow" ><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chevron-compact-right" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M6.776 1.553a.5.5 0 0 1 .671.223l3 6a.5.5 0 0 1 0 .448l-3 6a.5.5 0 1 1-.894-.448L9.44 8 6.553 2.224a.5.5 0 0 1 .223-.671z"/></svg></button>',
-        prevArrow:
-          '<button type="button" class="btn prev-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chevron-compact-left" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M9.224 1.553a.5.5 0 0 1 .223.67L6.56 8l2.888 5.776a.5.5 0 1 1-.894.448l-3-6a.5.5 0 0 1 0-.448l3-6a.5.5 0 0 1 .67-.223z"/></svg></button>',
-      });
-    </script>
+    <script src="./scripts/popover.js"></script>
     <script src="./scripts/item-detail.js"></script>
-    <script src="./scripts/add-item-to-user-bag.js"></script>
   </body>
 </html>

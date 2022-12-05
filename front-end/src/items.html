@@ -58,7 +58,9 @@
           />
         </div>
         <div>
-          <a href="#" class="fs-small">Sign In</a>
+          <a href="#" class="fs-small"
+            ><span class="signin-popover m-0">Sign In</span></a
+          >
           <a href="#" class="fs-small"><i class="fa-regular fa-heart"></i></a>
           <a href="#" class="fs-small bag-popover" data-bs-toggle="popover"
             ><i class="fa-sharp fa-solid fa-bag-shopping"></i>&nbsp; Bag</a
@@ -76,7 +78,9 @@
         <a href="#" class="text-uppercase">beauty</a>
         <a href="#" class="text-uppercase">decor & lifestyle</a>
         <div id="user-sticky">
-          <a href="#" class="fs-small"><i class="fa-regular fa-user"></i></a>
+          <a href="#" class="fs-small"
+            ><i class="fa-regular fa-user signin-popover"></i
+          ></a>
           <a href="#" class="fs-small"><i class="fa-regular fa-heart"></i></a>
           <a href="#" class="fs-small bag-popover" data-bs-toggle="popover"
             ><i class="fa-sharp fa-solid fa-bag-shopping"></i>&nbsp;</a
@@ -349,6 +353,22 @@
       </div>
     </div>
 
+    <!-- Sign in Popover -->
+    <div id="signin-popover" class="my-popover">
+      <div class="sign-in">
+        <!-- Phần này để rảnh thì làm tiếp  -->
+        <div class="carousel-text">
+          <div>Save you favorite item</div>
+        </div>
+        <button class="btn brown-btn no-radius white-btn" type="button">
+          create my gucci account
+        </button>
+      </div>
+      <div class="register">
+        <button class="btn brown-btn no-radius" type="button">sign in</button>
+      </div>
+    </div>
+
     <!-- Scripts -->
 
     <script
@@ -380,6 +400,6 @@
       });
     </script>
     <script src="./scripts/sticky-nav.js"></script>
-    <script src="./scripts/add-item-to-user-bag.js"></script>
+    <script src="./scripts/popover.js"></script>
   </body>
 </html>

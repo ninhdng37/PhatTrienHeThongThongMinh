@@ -105,6 +105,11 @@ video {
   font-weight: 400 !important;
 }
 
+.white-btn {
+  background-color: #fff !important;
+  color: #1b1b1b !important;
+}
+
 .btn-hover:hover {
   background-color: #1b1b1bdd !important;
 }
@@ -528,7 +533,8 @@ form input[type="email"]:focus {
 }
 
 /*  Bag style */
-#popover-test {
+
+.my-popover {
   width: 40%;
   display: inline-block;
   max-width: 400px;
@@ -536,26 +542,17 @@ form input[type="email"]:focus {
   top: 55px;
   right: 30px;
   background-color: #fff;
-  border: 1px solid #c4c4c4;
+  border: 1px solid #8a7f7f;
   box-shadow: 0 0 10px rgb(0 0 0 / 10%);
-  z-index: 1000;
   z-index: 1;
   transform: translateY(-500px);
   opacity: 0;
+  /* opacity: 1; */
   transition: 0.5s;
+  display: none;
 }
 
-#popover-test.active {
-  opacity: 1;
-  transform: translateY(5px);
-  z-index: 1000;
-}
-
-#popover-test.active.active-1 {
-  transform: translateX(33px);
-}
-
-#popover-test::before {
+.my-popover::before {
   content: "";
   position: absolute;
   top: 0;
@@ -564,12 +561,35 @@ form input[type="email"]:focus {
   height: 20px;
   display: inline-block;
   background-color: #fff;
-  transform: translate(-60px, -5px) rotate(45deg);
-  /* border: 1px solid #c4c4c4; */
-  z-index: 1;
+  transform: translate(-180px, -5px) rotate(45deg);
+  z-index: -1;
+  transition: 0.5s;
 }
 
-#popover-test h6 {
+.my-popover.active {
+  opacity: 1;
+  transform: translateY(5px);
+  z-index: 1000;
+  display: block;
+}
+
+.my-popover.active.active-1::before {
+  transform: translate(-200px, -5px) rotate(45deg);
+}
+
+#bag-detail-popover {
+  right: 10px;
+}
+
+#bag-detail-popover.my-popover::before {
+  transform: translate(-80px, -5px) rotate(45deg);
+}
+
+#bag-detail-popover.my-popover.active-1::before {
+  transform: translate(-47px, -5px) rotate(45deg);
+}
+
+#bag-detail-popover h6 {
   text-align: center;
   font-size: 1rem;
   font-family: "groteskTest";
@@ -578,20 +598,20 @@ form input[type="email"]:focus {
   color: #4b4b4b;
 }
 
-#popover-test .detail-list {
+#bag-detail-popover .detail-list {
   list-style-type: none;
   margin: 0;
   padding: 0;
   height: 200px;
 }
 
-#popover-test .detail-list.scroll {
+#bag-detail-popover .detail-list.scroll {
   overflow-y: scroll;
 }
-#popover-test .item-img {
+#bag-detail-popover .item-img {
   width: 150px;
 }
-#popover-test li {
+#bag-detail-popover li {
   display: flex;
   background-color: #fff;
   border-bottom: 1px solid #e7e7e7;
@@ -599,31 +619,31 @@ form input[type="email"]:focus {
   padding-top: 0.5rem;
 }
 
-#popover-test ul.detail-list li:last-child {
+#bag-detail-popover ul.detail-list li:last-child {
   border-bottom: 1px solid transparent;
 }
 
-#popover-test .item-content {
+#bag-detail-popover .item-content {
   text-align: left;
   padding-top: 0;
   margin-left: 1rem !important;
   color: #999;
 }
 
-#popover-test .item-name {
+#bag-detail-popover .item-name {
   font-size: 0.8rem;
   font-weight: 500;
   color: #313131;
 }
 
-#popover-test .quantity,
-#popover-test .price,
-#popover-test .size {
+#bag-detail-popover .quantity,
+#bag-detail-popover .price,
+#bag-detail-popover .size {
   font-size: 0.75rem;
   font-family: "groteskTest";
 }
 
-#popover-test .total {
+#bag-detail-popover .total {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -632,39 +652,70 @@ form input[type="email"]:focus {
   border-bottom: 1px solid #e7e7e7;
 }
 
-#popover-test .total-left,
-#popover-test .total-money,
-#popover-test .include {
+#bag-detail-popover .total-left,
+#bag-detail-popover .total-money,
+#bag-detail-popover .include {
   font-family: "groteskTest";
   color: #313131;
   margin: 0;
 }
 
-#popover-test .total-money {
+#bag-detail-popover .total-money {
   font-size: 1.2rem;
   text-align: right;
 }
 
-#popover-test .include {
+#bag-detail-popover .include {
   font-size: 1.2rem;
   font-weight: 300;
 }
 
-#popover-test .total-left span {
+#bag-detail-popover .total-left span {
   font-style: italic;
   font-family: serif;
   font-size: 1.1rem;
   font-weight: 200;
 }
 
-#popover-test .view-bag-checkout {
+#bag-detail-popover .view-bag-checkout {
   padding: 1.5rem;
 }
-#popover-test .view-bag {
+#bag-detail-popover .view-bag {
   text-decoration: none;
   color: #1b1b1b !important;
   display: block;
   text-align: center;
   margin-bottom: 0.8rem;
   padding: 0;
+}
+
+/* Sign in Popover */
+
+#signin-popover {
+  max-width: 350px;
+}
+
+#signin-popover .carousel-text div {
+  text-align: center;
+  color: #fff;
+  font-family: "groteskTest";
+}
+
+#signin-popover.my-popover::before {
+  background-color: #7c183d;
+  transition: 0.5s;
+}
+
+#signin-popover.my-popover.active-1::before {
+  transform: translate(-97px, -5px) rotate(45deg);
+}
+
+#signin-popover div {
+  padding: 1rem;
+}
+#signin-popover .sign-in {
+  background-color: #7c183d;
+}
+
+#signin-popover.popover {
 }
