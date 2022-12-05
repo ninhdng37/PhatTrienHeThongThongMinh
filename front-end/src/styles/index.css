@@ -19,7 +19,6 @@
   font-weight: 200;
 }
 
-
 * {
   padding: 0;
   margin: 0;
@@ -109,14 +108,16 @@ video {
 .btn-hover:hover {
   background-color: #1b1b1bdd !important;
 }
-a:link, a:visited {
-  color:#e5dfd9;
+a:link,
+a:visited {
+  color: #e5dfd9;
   text-decoration: none;
   display: inline-block;
   padding: 1rem;
 }
 
-a:hover, a:active {
+a:hover,
+a:active {
   color: #fff;
 }
 
@@ -131,29 +132,27 @@ a:hover, a:active {
   100% {
     opacity: 0;
   }
-
-
 }
 .loading-animation {
   position: fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100vh;
-  z-index:9999;
-  background-color: rgba(255,255,255,.8);
-  opacity:0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 9999;
+  background-color: rgba(255, 255, 255, 0.8);
+  opacity: 0;
 
-  display:flex;
+  display: flex;
   justify-content: center;
-  align-items:center;
+  align-items: center;
   animation: loading-animation 2s;
   animation-fill-mode: backwards;
 }
 
 .loading-animation img {
-  width:30px;
-  height:30px;
+  width: 30px;
+  height: 30px;
 }
 
 /* Header  */
@@ -164,7 +163,7 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 10;
+  z-index: 100;
 }
 
 #header.one-color {
@@ -173,36 +172,61 @@ header {
 
 .child--1 {
   transition: 0.5s;
-  padding: 1rem 3rem;
+  padding: 0.2rem 3rem;
 }
 
 .child--1 div span {
   margin: 0 1.2rem;
 }
 
-
-
 #header.sticky {
   background-color: #1b1b1b;
+  transform: translateY(-10px);
 }
 
 #header.sticky .child--1 {
-  /* padding: 0 !important; */
-  /* transform: translateY(-300px); */
+  padding: 0 !important;
+  transform: translateY(-300px);
 }
 
 .child--2 {
   transition: 0.5s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.child--2 a {
+  font-size: 0.8rem;
+  font-weight: 600;
+  position: relative;
+  /* padding: 0 1rem; */
 }
 
 #header.sticky .child--2 {
-  /* padding: 0 !important; */
-  /* transform: translateY(-10px); */
+  padding: 0 !important;
+  transform: translateY(-20px);
 }
-
+#header.sticky .child--2 a {
+  padding: 0 1rem;
+}
 header:hover {
   background: #1b1b1b;
   color: #e5dfd9;
+}
+
+#user-sticky {
+  position: absolute;
+  right: 50px;
+  display: none;
+}
+
+#header.sticky #user-sticky {
+  display: block;
+}
+
+#user-sticky a {
+  padding: 0 0.5rem !important;
 }
 
 /* Logo gucci */
@@ -246,7 +270,6 @@ header .logo {
   padding: 2rem 4rem;
 }
 
-
 .hero-section .hero-content {
   position: absolute;
   top: 60%;
@@ -289,6 +312,10 @@ header .logo {
   margin: 1rem auto 0 auto !important;
 }
 
+.carousel-products .child--2 {
+  flex-direction: column;
+}
+
 .section-img {
   width: 98% !important;
   min-height: 115vh;
@@ -303,19 +330,22 @@ header .logo {
 
 .owl-carousel {
   position: relative;
-
 }
 
 .owl-nav {
-position: absolute;
-transform: translate(-50%,-50%);
-top:50%;
-left:50%;
-display: flex;
-z-index: 1000;
-justify-content: space-between;
-padding: 0 2rem;
-width:100%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  display: flex;
+  z-index: 1000;
+  justify-content: space-between;
+  padding: 0 2rem;
+  width: 100%;
+}
+
+.contents .child--2 {
+  flex-direction: column;
 }
 
 /* link box */
@@ -331,6 +361,11 @@ width:100%;
   background-color: #f5f5f5;
   text-align: center;
   opacity: 0.7;
+}
+
+.discover a {
+  color: #4b4b4b;
+  padding: 0;
 }
 
 .link-box a {
@@ -356,6 +391,10 @@ footer {
 /* Items section */
 .items-section {
   margin-top: 13rem;
+}
+
+.items-section .child--1 {
+  padding: 0;
 }
 
 .items-section .item {
@@ -426,7 +465,7 @@ footer {
 
 .owl-carousel.items-carousel .owl-nav {
   transform: translate(-50%, -50%);
-  top:40%;
+  top: 40%;
   padding: 0 0.5rem;
 }
 
@@ -494,8 +533,8 @@ form input[type="email"]:focus {
   display: inline-block;
   max-width: 400px;
   position: fixed;
-  top:55px;
-  right:30px;
+  top: 55px;
+  right: 30px;
   background-color: #fff;
   border: 1px solid #c4c4c4;
   box-shadow: 0 0 10px rgb(0 0 0 / 10%);
@@ -507,16 +546,17 @@ form input[type="email"]:focus {
 }
 
 #popover-test.active {
-  opacity: 1; 
-  transform: translateY(20px);
+  opacity: 1;
+  transform: translateY(5px);
   z-index: 1000;
-
-
 }
 
+#popover-test.active.active-1 {
+  transform: translateX(33px);
+}
 
 #popover-test::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   right: 0;
@@ -524,7 +564,7 @@ form input[type="email"]:focus {
   height: 20px;
   display: inline-block;
   background-color: #fff;
-  transform: translate(-60px,-5px) rotate(45deg);
+  transform: translate(-60px, -5px) rotate(45deg);
   /* border: 1px solid #c4c4c4; */
   z-index: 1;
 }
@@ -532,7 +572,7 @@ form input[type="email"]:focus {
 #popover-test h6 {
   text-align: center;
   font-size: 1rem;
-  font-family: 'groteskTest';
+  font-family: "groteskTest";
   border-bottom: 1px solid #e7e7e7;
   padding: 1rem 0;
   color: #4b4b4b;
@@ -540,8 +580,8 @@ form input[type="email"]:focus {
 
 #popover-test .detail-list {
   list-style-type: none;
-  margin:0;
-  padding:0;
+  margin: 0;
+  padding: 0;
   height: 200px;
 }
 
@@ -550,13 +590,12 @@ form input[type="email"]:focus {
 }
 #popover-test .item-img {
   width: 150px;
-
 }
 #popover-test li {
   display: flex;
   background-color: #fff;
   border-bottom: 1px solid #e7e7e7;
-  margin: 0 .75rem;
+  margin: 0 0.75rem;
   padding-top: 0.5rem;
 }
 
@@ -565,11 +604,10 @@ form input[type="email"]:focus {
 }
 
 #popover-test .item-content {
-text-align: left;
-padding-top:0;
-margin-left: 1rem !important;
-color: #999;
-
+  text-align: left;
+  padding-top: 0;
+  margin-left: 1rem !important;
+  color: #999;
 }
 
 #popover-test .item-name {
@@ -581,12 +619,12 @@ color: #999;
 #popover-test .quantity,
 #popover-test .price,
 #popover-test .size {
-  font-size:0.75rem;
-  font-family: 'groteskTest';
+  font-size: 0.75rem;
+  font-family: "groteskTest";
 }
 
 #popover-test .total {
-  display:flex;
+  display: flex;
   justify-content: space-around;
   align-items: center;
   padding: 2rem 0;
@@ -597,9 +635,9 @@ color: #999;
 #popover-test .total-left,
 #popover-test .total-money,
 #popover-test .include {
-  font-family: 'groteskTest';
+  font-family: "groteskTest";
   color: #313131;
-  margin:0;
+  margin: 0;
 }
 
 #popover-test .total-money {
@@ -608,10 +646,9 @@ color: #999;
 }
 
 #popover-test .include {
-font-size: 1.2rem;
-font-weight: 300;
+  font-size: 1.2rem;
+  font-weight: 300;
 }
-
 
 #popover-test .total-left span {
   font-style: italic;
@@ -625,7 +662,7 @@ font-weight: 300;
 }
 #popover-test .view-bag {
   text-decoration: none;
-  color:#1b1b1b !important;
+  color: #1b1b1b !important;
   display: block;
   text-align: center;
   margin-bottom: 0.8rem;

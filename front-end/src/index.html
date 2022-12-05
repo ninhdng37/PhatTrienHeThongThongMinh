@@ -59,23 +59,28 @@
         <div>
           <a href="#" class="fs-small">Sign In</a>
           <a href="#" class="fs-small"><i class="fa-regular fa-heart"></i></a>
-          <a href="#" class="fs-small" id="bag-popover" data-bs-toggle="popover"
+          <a href="#" class="fs-small bag-popover" data-bs-toggle="popover"
             ><i class="fa-sharp fa-solid fa-bag-shopping"></i>&nbsp; Bag</a
           >
         </div>
       </div>
-      <div class="child--2 d-flex justify-content-center flex-center pb-2">
-        <span class="text-uppercase mx-3 my-3 fw-bold">gift</span>
-        <span class="text-uppercase mx-3 my-3 fw-bold">what's new</span>
-        <span class="text-uppercase mx-3 my-3 fw-bold">handbags</span>
-        <span class="text-uppercase mx-3 my-3 fw-bold">women</span>
-        <span class="text-uppercase mx-3 my-3 fw-bold">men</span>
-        <span class="text-uppercase mx-3 my-3 fw-bold">children</span>
-        <span class="text-uppercase mx-3 my-3 fw-bold"
-          >jewellery & watches</span
-        >
-        <span class="text-uppercase mx-3 my-3 fw-bold">beauty</span>
-        <span class="text-uppercase mx-3 my-3 fw-bold">decor & lifestyle</span>
+      <div class="child--2 pb-2">
+        <a href="#" class="text-uppercase">gift</a>
+        <a href="#" class="text-uppercase">what's new</a>
+        <a href="#" class="text-uppercase">handbags</a>
+        <a href="#" class="text-uppercase">women</a>
+        <a href="#" class="text-uppercase">men</a>
+        <a href="#" class="text-uppercase">children</a>
+        <a href="#" class="text-uppercase">jewellery & watches</a>
+        <a href="#" class="text-uppercase">beauty</a>
+        <a href="#" class="text-uppercase">decor & lifestyle</a>
+        <div id="user-sticky">
+          <a href="#" class="fs-small"><i class="fa-regular fa-user"></i></a>
+          <a href="#" class="fs-small"><i class="fa-regular fa-heart"></i></a>
+          <a href="#" class="fs-small bag-popover" data-bs-toggle="popover"
+            ><i class="fa-sharp fa-solid fa-bag-shopping"></i>&nbsp;</a
+          >
+        </div>
       </div>
     </header>
     <section class="hero-section">
@@ -496,6 +501,18 @@
         </div>
       </div>
     </div>
+
+    <!-- Sign in Popover -->
+    <div id="sign-in-popover">
+      <div class="sign-in">
+        <button class="btn brown-btn no-radius" type="button">
+          create my gucci account
+        </button>
+      </div>
+      <div class="register">
+        <button class="btn brown-btn no-radius" type="button">sign in</button>
+      </div>
+    </div>
     <!-- Scripts -->
 
     <script
@@ -527,12 +544,8 @@
           ],
         });
       });
-
-      window.addEventListener("scroll", function () {
-        const header = document.getElementById("header");
-        header.classList.toggle("sticky", window.scrollY > 100);
-      });
     </script>
+    <script src="./scripts/sticky-nav.js"></script>
     <script src="./scripts/add-item-to-user-bag.js"></script>
   </body>
 </html>
