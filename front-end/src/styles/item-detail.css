@@ -30,7 +30,6 @@
 }
 
 .item-detail-content h6 {
-  font-family: groteskFont;
   text-align: center;
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   letter-spacing: 3px;
@@ -51,7 +50,6 @@
 }
 
 .item-detail-content .color-container {
-  font-family: "groteskTest";
   display: flex;
   width: 300px;
   margin: 0.8rem auto;
@@ -79,7 +77,6 @@
 
 .color-name-container .color-name {
   margin-right: 0.8rem;
-  font-family: "groteskTest";
   font-size: 0.9rem;
 }
 
@@ -116,7 +113,6 @@
 
 .item-detail-content .select-size {
   width: auto !important;
-  font-family: groteskFont;
   font-size: 0.9rem;
   border: 1px solid rgba(255, 255, 255, 0.3) !important;
   box-shadow: none !important;

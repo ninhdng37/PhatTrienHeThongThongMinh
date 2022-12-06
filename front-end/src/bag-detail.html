@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap demo</title>
+    <link rel="icon" type="image/x-icon" href="./images/icons/favicon.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Spectral+SC:wght@200;400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dosis:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/9f1102c4bf.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="owlcarousel/owl.carousel.min.css" />
+    <link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css" />
+    <link rel="stylesheet" href="./styles/index.css" />
+    <link rel="stylesheet" href="./styles/bag-detail.css" />
+  </head>
+
+  <body>
+    <header class="fc-white dosis-font" id="header">
+      <div
+        class="child--1 fs-6 d-flex align-items-center justify-content-between"
+      >
+        <div class="fs-small">
+          <span class="fs-small"
+            ><i class="fa-solid fa-location-dot fa-xs"></i> Singapore</span
+          >
+          <span class="fs-small">English</span>
+          <span class="fs-small d-inline-flex align-items-center"
+            ><i class="px-1 fa-solid fa-phone fa-xs fs-small"></i>
+            +65-6983-1020</span
+          >
+        </div>
+        <div class="px-2" style="transform: translateX(-45px)">
+          <img
+            src="images/gucci_logo.png"
+            width="160px"
+            height="26px"
+            alt=""
+            class="logo"
+          />
+        </div>
+        <div>
+          <a href="#" class="fs-small"
+            ><span class="signin-popover m-0">Sign In</span></a
+          >
+          <a href="#" class="fs-small"><i class="fa-regular fa-heart"></i></a>
+          <a href="#" class="fs-small bag-popover" data-bs-toggle="popover"
+            ><i class="fa-sharp fa-solid fa-bag-shopping"></i>&nbsp; Bag</a
+          >
+        </div>
+      </div>
+      <div class="child--2 pb-2">
+        <a href="#" class="text-uppercase">gift</a>
+        <a href="#" class="text-uppercase">what's new</a>
+        <a href="#" class="text-uppercase">handbags</a>
+        <a href="#" class="text-uppercase">women</a>
+        <a href="#" class="text-uppercase">men</a>
+        <a href="#" class="text-uppercase">children</a>
+        <a href="#" class="text-uppercase">jewellery & watches</a>
+        <a href="#" class="text-uppercase">beauty</a>
+        <a href="#" class="text-uppercase">decor & lifestyle</a>
+        <div id="user-sticky">
+          <a href="#" class="fs-small"
+            ><i class="fa-regular fa-user signin-popover"></i
+          ></a>
+          <a href="#" class="fs-small"><i class="fa-regular fa-heart"></i></a>
+          <a href="#" class="fs-small bag-popover" data-bs-toggle="popover"
+            ><i class="fa-sharp fa-solid fa-bag-shopping"></i>&nbsp;</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <section id="bag-detail-hero-section" class="hero-section">
+      <h2>SHOPPING BAG</h2>
+      <img src="./images/icons/favicon.png" alt="" />
+    </section>
+    <section id="items-section" class="fluid-container">
+      <div class="left">
+        <h6>your selection</h6>
+        <ul class="list">
+          <li>
+            <div class="img">
+              <img src="./images/bag-detail-img/white-shirt.jpg" alt="" />
+            </div>
+            <div class="item-detail-and-action">
+              <div class="item-detail">
+                <p class="item-name">Cotton poplin shirt with embroidery</p>
+                <p class="item-variation">Variation: off-white</p>
+                <p class="item-size">Size: XL</p>
+              </div>
+              <div class="action">
+                <button type="button" class="btn rp-btn r-border no-radius">
+                  Edit
+                </button>
+                <button type="button" class="btn p-btn no-radius">
+                  Remove
+                </button>
+              </div>
+            </div>
+            <div class="quantity-and-total-money">
+              <span class="quantity-span">
+                <label for="select-quantity">QTY:</label>
+                <select
+                  id="select-quantity"
+                  class="form-select select-size no-radius"
+                  aria-label="Default select example"
+                >
+                  <option selected value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select>
+              </span>
+
+              <span class="total-money">C$ 1,000</span>
+            </div>
+          </li>
+          <li>
+            <div class="img">
+              <img src="./images/bag-detail-img/black-shirt.jpg" alt="" />
+            </div>
+            <div class="item-detail-and-action">
+              <div class="item-detail">
+                <p class="item-name">Cotton poplin shirt with embroidery</p>
+                <p class="item-variation">Variation: off-white</p>
+                <p class="item-size">Size: XL</p>
+              </div>
+              <div class="action">
+                <button type="button" class="btn rp-btn r-border no-radius">
+                  Edit
+                </button>
+                <button type="button" class="btn p-btn no-radius">
+                  Remove
+                </button>
+              </div>
+            </div>
+            <div class="quantity-and-total-money">
+              <span class="quantity-span">
+                <label for="select-quantity">QTY:</label>
+                <select
+                  id="select-quantity"
+                  class="form-select select-size no-radius"
+                  aria-label="Default select example"
+                >
+                  <option selected value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select>
+              </span>
+
+              <span class="total-money">C$ 1,000</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="right">
+        <div id="order-summary">
+          <h6>ORDER SUMMARY</h6>
+          <div class="order-detail">
+            <div class="detail-container">
+              <span class="subtotal">Subtotal</span>
+              <span class="value">C$ 2,000</span>
+            </div>
+            <div class="detail-container">
+              <span class="shipping">Shipping</span>
+              <span class="shipping-value"
+                ><i>Free (Standard Shipping)</i></span
+              >
+            </div>
+            <div class="detail-container">
+              <span class="estimated-total">Estimated Total</span>
+              <span class="total-money">C$ 2,000</span>
+            </div>
+          </div>
+        </div>
+        <div class="other-information">orther-information</div>
+        <div class="actions">
+          <button class="btn brown-btn no-radius btn-hover">checkout</button>
+          <span class="or">OR</span>
+          <button
+            class="btn btn-with-img brown-border-btn-hover white-btn no-radius text-uppercase brown-border-btn"
+          >
+            <span>pay with</span> <img src="./images/icons/paypal.svg" alt="" />
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Scripts -->
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.min.js"
+      integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+      crossorigin="anonymous"
+    ></script>
+    <script src="owlcarousel/owl.carousel.min.js"></script>
+
+    <script>
+      $(document).ready(function () {
+        $(".owl-carousel").owlCarousel({
+          center: true,
+          items: 1,
+          loop: true,
+          margin: 0,
+          autoplay: true,
+          autoplayTimeout: 5000,
+          autoplayHoverPause: true,
+          nav: true,
+          navText: [
+            '<svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" fill="currentColor" class="bi bi-chevron-compact-left" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M9.224 1.553a.5.5 0 0 1 .223.67L6.56 8l2.888 5.776a.5.5 0 1 1-.894.448l-3-6a.5.5 0 0 1 0-.448l3-6a.5.5 0 0 1 .67-.223z"/></svg>',
+            '<svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" fill="currentColor" class="bi bi-chevron-compact-right" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M6.776 1.553a.5.5 0 0 1 .671.223l3 6a.5.5 0 0 1 0 .448l-3 6a.5.5 0 1 1-.894-.448L9.44 8 6.553 2.224a.5.5 0 0 1 .223-.671z"/></svg>',
+          ],
+        });
+      });
+    </script>
+    <script src="./scripts/sticky-nav.js"></script>
+    <script src="./scripts/popover.js"></script>
+  </body>
+</html>
