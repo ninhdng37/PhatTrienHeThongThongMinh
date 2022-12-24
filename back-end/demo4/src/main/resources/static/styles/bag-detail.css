@@ -1,0 +1,182 @@
+#bag-detail-hero-section.hero-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #d9d9d9;
+  min-height: 55vh;
+  vertical-align: bottom;
+}
+
+#bag-detail-hero-section.hero-section h2 {
+  color: #fff;
+  font-weight: 400;
+  font-size: 2.8rem;
+  letter-spacing: 0.2rem;
+  margin-top: 10rem;
+}
+
+#bag-detail-hero-section.hero-section img {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 15px);
+}
+
+#items-section {
+  background-color: #e7e7e7;
+  margin: 1.5rem;
+  display: flex;
+  color: #999;
+  padding: 2rem;
+}
+
+#items-section .left {
+  flex-grow: 2;
+  padding-right: 1rem;
+}
+
+#items-section h6 {
+  border-bottom: 1px solid #999;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.13rem;
+  border-bottom: 1px solid #999;
+  padding-bottom: 0.8rem;
+}
+
+#items-section .list {
+  padding: 0;
+}
+
+#items-section .item-detail-and-action {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#items-section li .item-detail {
+  background-color: transparent;
+  border-right: 1px solid #dbdada;
+}
+#items-section li p {
+  margin: 0;
+}
+
+#items-section li .item-name {
+  margin-top: 0.5rem;
+  margin-bottom: 0.8rem;
+  color: #1b1b1b;
+}
+
+#items-section li .item-variation,
+#items-section li .item-size {
+  font-size: 0.8rem;
+  margin-bottom: 0.3rem;
+}
+#items-section .img {
+  text-align: center;
+}
+#items-section .img img {
+  max-width: 100%;
+}
+
+#items-section .left .btn {
+  border: none;
+  padding: 0;
+  color: #1b1b1b;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+.rp-btn {
+  padding-right: 0.8rem !important;
+}
+.r-border {
+  border-right: 1px solid #1b1b1b !important;
+}
+
+.p-btn {
+  padding: 0 0.5rem !important;
+}
+
+#items-section .right {
+  width: 350px;
+}
+
+#items-section li {
+  display: grid;
+  grid-template-columns: 185px repeat(2, 1fr);
+  border-bottom: 1px solid #ccc;
+  padding: 2rem 0 2rem 0;
+}
+
+#items-section .quantity-and-total-money {
+  padding: 1rem;
+  color: #1b1b1b;
+}
+
+#items-section .select-size {
+  width: auto !important;
+  font-family: groteskFont;
+  font-size: 0.9rem;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  box-shadow: none !important;
+  background-color: rgba(255, 255, 255, 0.3);
+  transition: 0.7s;
+}
+.item-detail-content:hover .select-size {
+  background-color: rgba(255, 255, 255, 0.6);
+  border-color: rgba(255, 255, 255, 0.9);
+}
+
+.select-size:hover {
+  color: #333;
+}
+
+.select-size option {
+  font-family: inherit;
+  font-weight: 200;
+}
+
+.quantity-span {
+  display: flex;
+  align-items: center;
+  width: 200px;
+  display: inline-block;
+}
+
+#select-quantity {
+  display: inline-block;
+  margin-left: 0.3rem;
+}
+
+#items-section .total-money {
+  float: right;
+}
+
+.right {
+  background-color: #fff;
+  padding: 1.5rem;
+}
+
+#order-summary h6 {
+  margin-bottom: 1.5rem;
+}
+#order-summary .detail-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  align-items: center;
+}
+
+#order-summary .detail-container span {
+  font-size: 0.75rem;
+}
+#order-summary .detail-container span:first-child,
+#order-summary .detail-container span.value {
+  color: #666666;
+  /* font-family: "groteskTest"; */
+  font-weight: 600;
+}
+#order-summary .detail-container .total-money {
+  font-size: 1.3rem;
+  color: #313131;
+}

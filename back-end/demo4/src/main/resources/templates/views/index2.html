@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Welcome to CodeJava Home</title>
+	<link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+	<script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container text-center">
+		<h1>Welcome to CodeJava.net</h1>
+		
+		<h3><a th:href="@{/register}">Register</a></h3>
+		<h3><a th:href="@{/list_items}">List of Items</a></h3>
+      <h3><a th:href="@{/list_users}">List of Users</a></h3>
+      <div class="img-container" th:if="${user=='anonymousUser'}">
+		 <h3 ><a th:href="@{/login}">Login</a></h3>
+	</div>
+            
+     <div class="img-container" th:if="${user=='ADMIN'}">
+             <h3>ADMIN</h3>
+            <!--  <h3><a th:text="${session.mySessionAttribute}" th:href="@{/edit_admin}"  th:unless="${session == null}">[...]</a></h3> -->
+            <h3><a th:text="${session.mySession.tentk}" th:href="@{/edit_user}"  th:unless="${session == null}">[...]</a></h3>
+             <h3><a th:href="@{/list_users}">List of Users</a></h3>
+        </div>
+        <div class="img-container" th:if="${user=='USER'}">
+             <h3>USER</h3>
+          <!--    <h3><a th:text="${session.mySessionAttribute}" th:href="@{/edit_user}"  th:unless="${session == null}">[...]</a></h3> -->
+             <h3><a th:text="${session.mySession.tentk}" th:href="@{/edit_user}"  th:unless="${session == null}">[...]</a></h3>
+        </div> -
+    <div class="img-container" th:if="${user!='anonymousUser'}">
+		<form th:action="@{/logout}" method="post">
+			<input type="submit" value="Sign Out" />
+		</form> 
+	</div> 
+	
+	</div>
+	
+</body>
+</html>

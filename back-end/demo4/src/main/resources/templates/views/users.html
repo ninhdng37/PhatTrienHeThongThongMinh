@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="ISO-8859-1">
+	<title>List Users</title>
+	<link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+	<script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+</head>
+<body>
+<div class="container text-center">
+	<div>
+		<form th:action="@{/logout}" method="post">
+			<p>
+				Welcome <b>[[${#request.userPrincipal.principal.fullName}]]</b>
+			</p>
+			<input type="submit" value="Sign Out" />
+		</form>
+	</div>
+	<div>
+	
+		<h1>List of Users</h1>
+<!-- 			<div th:switch="${user.lastName}">
+          <p th:case="'thanh'">Thanh is an administrator</p>
+         <p th:case="*">User is some other thing</p> 
+</div> -->
+
+	</div>
+	
+	<div>
+	<div class = "row">
+			<div class = "col-lg-3">
+				<a th:href = "@{/user_new}" class = "btn btn-primary btn-sm mb-3"> Add User</a>
+			</div>
+			<div class = "col-lg-3">
+				<a th:href = "@{/}" class = "btn btn-primary btn-sm mb-3"> Home</a>
+			</div>
+		</div>
+		<table class="table table-striped table-bordered">
+			<thead class="thead-dark">
+				<tr>
+					<th>ID</th>
+					<th>USERNAME</th>
+					<th>E-mail</th>
+					<th>Dia chi</th>
+					<th>So dt</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="user: ${listUsers}">
+				<td th:text="${user.makh}"> ID</td>
+					<td th:text="${user.hotenkh}">Username</td>
+					<td th:text="${user.email}">E-mail</td>
+					<td th:text="${user.diachi}">Dia chi</td>
+					<td th:text="${user.sdt}">Sdt</td>
+					<td>
+						 <a th:href = "@{/user_edit/{makh}(makh=${user.makh})}"
+						 class = "btn btn-primary">Update</a> 
+						
+						<a th:href = "@{/list_users/{makh}(makh=${user.makh})}"
+						 class = "btn btn-danger">Delete</a> 
+						 
+					</td> 
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+</body>
+</html>
