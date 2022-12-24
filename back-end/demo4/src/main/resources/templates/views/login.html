@@ -1,20 +1,420 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap demo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Spectral+SC:wght@200;400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dosis:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/9f1102c4bf.js"
+      crossorigin="anonymous"
+    ></script>
+ <!--    <link rel="stylesheet" href="owlcarousel/owl.carousel.min.css" /> -->
+  <!--   <link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css" /> -->
+ <!--    <link rel="stylesheet" href="views/styles/index.css" /> -->
+    <link th:href="@{/styles/index.css}" rel="stylesheet" />
+    <link th:href="@{/owlcarousel/owl.theme.default.min.css}" rel="stylesheet" />
+    <link th:href="@{/owlcarousel/owl.carousel.min.css}" rel="stylesheet" />
 </head>
 <body>
- <div th:if="${param.error}">
-            Invalid username and password.
+<div class="loading-animation">
+      <img src="./images/animation/loading-black-2x.gif" alt="" />
+    </div>
+    <header class="fc-white dosis-font" id="header">
+      <div
+        class="child--1 fs-6 d-flex align-items-center justify-content-between"
+      >
+        <div class="fs-small">
+          <span class="fs-small"
+            ><i class="fa-solid fa-location-dot fa-xs"></i> Singapore</span
+          >
+          <span class="fs-small">English</span>
+          <span class="fs-small d-inline-flex align-items-center"
+            ><i class="px-1 fa-solid fa-phone fa-xs fs-small"></i>
+            +65-6983-1020</span
+          >
         </div>
-        <div th:if="${param.logout}">
-            You have been logged out.
+        <div class="px-2" style="transform: translateX(-45px)">
+          <img
+            src="images/gucci_logo.png"
+            width="160px"
+            height="26px"
+            alt=""
+            class="logo"
+          />
         </div>
-        <form th:action="@{/login}" method="post">
-            <div><label> User Name : <input type="text" name="tentk"/> </label></div>
-            <div><label> Password: <input type="password" name="password"/> </label></div>
-            <div><input type="submit" value="Sign In"/></div>
+        <div>
+          <a href="#" class="fs-small"
+            ><span class="signin-popover m-0">Sign In</span></a
+          >
+          <a href="#" class="fs-small"><i class="fa-regular fa-heart"></i></a>
+          <a href="#" class="fs-small bag-popover" data-bs-toggle="popover"
+            ><i class="fa-sharp fa-solid fa-bag-shopping"></i>&nbsp; Bag</a
+          >
+        </div>
+      </div>
+      <div class="child--2 pb-2">
+        <a href="#" class="text-uppercase">gift</a>
+        <a href="#" class="text-uppercase">what's new</a>
+        <a href="#" class="text-uppercase">handbags</a>
+        <a href="#" class="text-uppercase">women</a>
+        <a href="#" class="text-uppercase">men</a>
+        <a href="#" class="text-uppercase">children</a>
+        <a href="#" class="text-uppercase">jewellery & watches</a>
+        <a href="#" class="text-uppercase">beauty</a>
+        <a href="#" class="text-uppercase">decor & lifestyle</a>
+        <div id="user-sticky">
+          <a href="#" class="fs-small"
+            ><i class="fa-regular fa-user signin-popover"></i
+          ></a>
+          <a href="#" class="fs-small"><i class="fa-regular fa-heart"></i></a>
+          <a href="#" class="fs-small bag-popover" data-bs-toggle="popover"
+            ><i class="fa-sharp fa-solid fa-bag-shopping"></i>&nbsp;</a
+          >
+        </div>
+      </div>
+    </header>
+    <section class="container-fluid register-section">
+      <h4>MY GUCCI Account</h4>
+      <div class="container accounts-container">
+        <button class="another-account">
+          <div class="icon">
+            <img src="./images/icons/google-svgrepo-com.svg" alt="" />
+          </div>
+          <div class="content">continue with google</div>
+        </button>
+        <button class="another-account mt-4">
+          <div class="icon">
+            <img src="./images/icons/apple-svgrepo-com.svg" alt="" />
+          </div>
+          <div class="content">continue with apple</div>
+        </button>
+      </div>
+      <div class="container register-account">
+        <p>OR</p>
+        <p class="groteskFont my-4" style="font-size: 1.6rem; font-weight: 300">
+          Continue with your email address
+        </p>
+        <p
+          class="groteskFont"
+          style="
+            width: 380px;
+            margin: 0 auto;
+            font-size: 0.8rem;
+            font-weight: 600;
+          "
+        >
+          Sign in with your
+          <span style="text-transform: uppercase">GUCCI</span> email and
+          password or create a profile if you are new.
+        </p>
+
+        <form
+          th:action="@{/login}"
+          method="post"
+          class=""
+          style="width: 400px; margin: 2rem auto"
+          id="email-form"
+        >
+          <div class="form-floating mb-3 groteskFont">
+             <div class="form-floating mb-5 groteskFont">
+            <input
+              type="text"
+              class="form-control no-radius"
+              id="floatingInput"
+              name="tentk"
+            />
+            <label for="floatingInput" style="font-weight: 300">EMAIL*</label>
+          </div>
+
+          <div class="form-floating mb-5">
+            <input
+              type="password"
+              class="form-control no-radius"
+              id="floatingInput"
+              name="password"
+            />
+            <label for="floatingInput" style="font-weight: 300"
+              >PASSWORD*</label
+            >
+          </div>
+          
+            <button type="submit" class="brown-btn btn no-radius mt-3 py-3">
+              continue
+            </button>
+          </div>
         </form>
+
+        <!-- <form
+          action="#"
+          class="d-none"
+          style="width: 400px; margin: 2rem auto"
+          id="full-form"
+        >
+          <span
+            class="groteskFont d-block my-2"
+            style="text-align: left; font-weight: 300; font-size: 0.9rem"
+            >*Required field</span
+          >
+          <div class="form-floating mb-5 groteskFont">
+            <input
+              type="email"
+              class="form-control no-radius"
+              id="floatingInput"
+              placeholder="name@example.com"
+            />
+            <label for="floatingInput" style="font-weight: 300">EMAIL*</label>
+          </div>
+
+          <div class="form-floating mb-5">
+            <input
+              type="password"
+              class="form-control no-radius"
+              id="floatingInput"
+              placeholder="name@example.com"
+            />
+            <label for="floatingInput" style="font-weight: 300"
+              >PASSWORD*</label
+            >
+          </div>
+          <div class="form-floating mb-5">
+            <select
+              class="form-select no-radius"
+              id="floatingSelect"
+              aria-label="Floating label select example"
+            >
+              <option value="1">Mr.</option>
+              <option value="2">Ms.</option>
+              <option value="3">I'd rather not say</option>
+            </select>
+            <label for="floatingSelect">SELECT TITLE*</label>
+          </div>
+
+          <div class="form-floating mb-5 groteskFont">
+            <input
+              type="text"
+              class="form-control no-radius"
+              id="floatingInput"
+              placeholder="nguyen"
+            />
+            <label for="floatingInput" style="font-weight: 300"
+              >LAST NAME*</label
+            >
+          </div>
+          <div class="form-floating mb-5 groteskFont">
+            <input
+              type="text"
+              class="form-control no-radius register-input"
+              id="floatingInput"
+              placeholder="phuong"
+            />
+            <label for="floatingInput" style="font-weight: 300"
+              >FIRST NAME*</label
+            >
+          </div>
+
+          <div class="mb-3">
+            <label
+              class="form-label"
+              style="
+                display: block;
+                text-align: left;
+                color: #666;
+                font-weight: 300;
+              "
+              >DATE OF BIRTH *</label
+            >
+            <div id="date-of-birth-container">
+              <div class="form-floating groteskFont me-2">
+                <input
+                  type="number"
+                  class="form-control no-radius register-input"
+                  id="floatingInput"
+                  placeholder="phuong"
+                  min="1"
+                  max="12"
+                />
+                <label for="floatingInput" style="font-weight: 300"
+                  >MONTH*</label
+                >
+              </div>
+              <div class="form-floating groteskFont me-2">
+                <input
+                  type="number"
+                  class="form-control no-radius register-input"
+                  id="floatingInput"
+                  placeholder="phuong"
+                  min="1"
+                  max="31"
+                />
+                <label for="floatingInput" style="font-weight: 300">DAY*</label>
+              </div>
+              <div class="form-floating groteskFont me-2">
+                <input
+                  type="number"
+                  class="form-control no-radius register-input"
+                  id="floatingInput"
+                  placeholder="phuong"
+                  min="1"
+                />
+                <label for="floatingInput" style="font-weight: 300"
+                  >YEAR*</label
+                >
+              </div>
+            </div>
+          </div>
+
+          <button class="brown-btn btn no-radius mt-5 py-3">
+            create my profile
+          </button>
+        </form> -->
+      </div>
+    </section>
+
+ <!-- TEST POPOVER -->
+ <div id="bag-detail-popover" class="my-popover">
+  <h6>Shopping Bag</h6>
+  <div>
+    <ul class="detail-list scroll">
+      <li class="item">
+        <div class="item-img">
+          <img
+            src="./images/men-shirts/men-shirt-bag/blue-shirt/blue-shirt.jpg"
+            alt=""
+          />
+        </div>
+        <div class="item-content">
+          <p class="item-name">Cotton shirt with Double G</p>
+          <p class="quantity">Quantity: 1</p>
+          <p class="price">Price: C$ 1,005</p>
+          <p class="size">Size: XL</p>
+        </div>
+      </li>
+
+      <li class="item">
+        <div class="item-img">
+          <img
+            src="./images/men-shirts/men-shirt-bag/blue-shirt/blue-shirt.jpg"
+            alt=""
+          />
+        </div>
+        <div class="item-content">
+          <p class="item-name">Cotton shirt with Double G</p>
+          <p class="quantity">Quantity: 1</p>
+          <p class="price">Price: C$ 1,005</p>
+          <p class="size">Size: XL</p>
+        </div>
+      </li>
+    </ul>
+    <div class="total">
+      <div class="total-left">
+        <span>Sub Total</span>
+      </div>
+      <div class="total-right">
+        <p class="total-money">C$ 2,0101</p>
+        <p class="include">Import Duties Included</p>
+      </div>
+    </div>
+    <div class="view-bag-checkout">
+      <a href="#" class="view-bag">view bag details</a>
+      <button type="button" class="btn brown-btn no-radius btn-hover">
+        checkout
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Sign in Popover -->
+<div id="signin-popover" class="my-popover">
+  <div class="sign-in">
+    <!-- Phần này để rảnh thì làm tiếp  -->
+    <div class="carousel-text">
+      <div>Save you favorite item</div>
+    </div>
+    <button class="btn brown-btn no-radius white-btn" >
+    <a th:href = "@{/user/register}" style="color:black;"> create my gucci account</a>
+     
+    </button>
+  </div>
+  <div class="register">
+    <button class="btn brown-btn no-radius" type="button">
+    <a th:href = "@{/user/register}">sign in</a>
+    </button>
+  </div>
+</div>
+
+        <!-- Scripts -->
+
+        <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"
+      ></script>
+      <script
+        src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+        crossorigin="anonymous"
+      ></script>
+  <!--     <script src="owlcarousel/owl.carousel.min.js"></script> -->
+  <script type="text/javascript" th:src="@{/owlcarousel/owl.carousel.min.js}"></script>
+      <script>
+        $(document).ready(function () {
+          $(".owl-carousel").owlCarousel({
+            center: true,
+            items: 1,
+            loop: true,
+            margin: 0,
+            autoplay: true,
+            autoplayTimeout: 5000,
+            autoplayHoverPause: true,
+            nav: true,
+            navText: [
+              '<svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" fill="currentColor" class="bi bi-chevron-compact-left" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M9.224 1.553a.5.5 0 0 1 .223.67L6.56 8l2.888 5.776a.5.5 0 1 1-.894.448l-3-6a.5.5 0 0 1 0-.448l3-6a.5.5 0 0 1 .67-.223z"/></svg>',
+              '<svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" fill="currentColor" class="bi bi-chevron-compact-right" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M6.776 1.553a.5.5 0 0 1 .671.223l3 6a.5.5 0 0 1 0 .448l-3 6a.5.5 0 1 1-.894-.448L9.44 8 6.553 2.224a.5.5 0 0 1 .223-.671z"/></svg>',
+            ],
+          });
+        });
+      </script>
+   <!--    <script src="./scripts/sticky-nav.js"></script>
+      <script src="./scripts/popover.js"></script> -->
+
+      <script>
+        window.addEventListener("scroll", function () {
+          const header = document.getElementById("header");
+          header.classList.toggle("sticky", window.scrollY > 100);
+        });
+  
+        const emailForm = document.getElementById("email-form");
+        const fullForm = document.getElementById("full-form");
+  
+        const emailFormSubmit = function () {
+          console.log("sas");
+          emailForm.classList.toggle("d-none");
+          fullForm.classList.toggle("d-none");
+        };
+        emailForm.onsubmit = emailFormSubmit;
+      </script>
+      <script type="text/javascript" th:src="@{/scripts/loading-animation.js}"></script>
+
+      <script type="text/javascript" th:src="@{/scripts/sticky-nav.js}"></script>
+      <script type="text/javascript" th:src="@{/scripts/popover.js}"></script>
 </body>
-</html>
+</html> 
