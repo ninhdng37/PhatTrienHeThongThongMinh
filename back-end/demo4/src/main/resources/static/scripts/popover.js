@@ -79,7 +79,7 @@ signInPopover.mouseleave(() => {
     });
   });
   
-  
+  const starNumberInput = $('#starNumber');
   /* 2. Action to perform on click */
   $('#stars li').on('click', function(){
     var onStar = parseInt($(this).data('value'), 10); // The star currently selected
@@ -95,14 +95,17 @@ signInPopover.mouseleave(() => {
     
     // JUST RESPONSE (Not needed)
     var ratingValue = parseInt($('#stars li.selected').last().data('value'), 10);
-    var msg = "";
-    if (ratingValue > 1) {
-        msg = "Thanks! You rated this " + ratingValue + " stars.";
-    }
-    else {
-        msg = "We will improve ourselves. You rated this " + ratingValue + " stars.";
-    }
-    responseMessage(msg);
+    starNumberInput.value = ratingValue;
+	  		console.log(starNumberInput);
+    
     
   });
+//	 	const startList = $('.start');
+//	  	const starNumberInput = $('#starNumber');
+//	  	startList.children().on('click', function(e) {
+//	  		starNumberInput.value = e.target.attr('data-value');
+//	  		console.log(starNumberInput);
+//	  	})
+	  	
+
   
