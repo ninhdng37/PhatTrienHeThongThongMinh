@@ -3,14 +3,45 @@ package com.example.demo4.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
 import com.example.demo4.entity.Ctddh;
 import com.example.demo4.entity.Cthd;
 import com.example.demo4.entity.Hoadon;
 import com.example.demo4.entity.Mathang;
+import com.example.demo4.service.BangGiaService;
+import com.example.demo4.service.CTHDService;
+import com.example.demo4.service.HoaDonService;
+import com.example.demo4.service.KhachhangService;
+import com.example.demo4.service.MathangService;
+import com.example.demo4.service.PhieuDatService;
+import com.example.demo4.service.SizeService;
+import com.example.demo4.service.TaikhoanService;
 
 //import javax.management.loading.PrivateClassLoader;
 
+@Component
 public class Apriori {
+	@Autowired
+	private TaikhoanService taikhoanService;
+	@Autowired
+   private KhachhangService khachhangService;
+   @Autowired
+   private MathangService mathangService;
+   @Autowired
+   private BangGiaService bangGiaService;
+   @Autowired
+   private SizeService sizeService;
+   @Autowired
+   private PhieuDatService phieuDatService;
+   @Autowired 
+   private CTHDService cthdService;
+   @Autowired
+   private HoaDonService hoaDonService;
 	private static int numTransactions = 0;
 	private static int minSup = 3;
 	private static double maxConfidence = 65.0;
@@ -18,15 +49,24 @@ public class Apriori {
 	private static int sizeCustomer = 0;
 	private static int sizeAll = 0;
 
-	public static void main(String[] args) {
+	public void Apriori(String masothue) {
+	
+        List<Cthd> listcthd= cthdService.getLayDSCTHD(masothue);
+        List<Hoadon> listhoadon=hoaDonService.getLayDSHD(masothue);
+        List<Mathang> listmathangAll=mathangService.getLayDSSP(masothue);
+        List<Mathang> listmathangBuy=mathangService.getLayDSSPDAMUA(masothue);
+        
 		String data[][] = new String[200][200];
 				
  		String frequentItemSet[][] = new String[1000][1000];
-		int Location[] = new int[100];
-		String itemHistory[] = new String[100];
-		String itemAll[] = new String[100];
+		int Location[] = new int[1000];
+		String itemHistory[] = new String[1000];
+		String itemAll[] = new String[1000];
 //		String itemAll[] = new String[100];
  		List<String> finaly = new ArrayList<String>();
+ 		LoadProductAll(itemAll, listmathangAll);
+ 		LoadProductCustomer(itemHistory, listmathangBuy);
+ 		LOADDATA(listhoadon, listcthd, data);
 		foundFrequentItemSet(data, frequentItemSet, Location, itemAll);
 		foundLawDetermination(data, frequentItemSet, itemHistory, finaly, Location);
 		System.out.println(finaly.size());
@@ -43,8 +83,11 @@ public class Apriori {
 //			}
 //			System.out.println("Phong");
 //		}
+		for(String sp: finaly)
+			System.out.println(sp);
 	}
-
+	
+	
 	
 	// Lấy danh sách các sản phẩm đã mua của all
 	public void LoadProductAll(String itemAll[], List<Mathang> mh) {
@@ -238,7 +281,7 @@ public class Apriori {
 					checkConfidence = 0;
 					if(frequentItemSet[i][j] == null)
 						break;
-					for (int k = 0; k < 2; k++) {
+					for (int k = 0; k < sizeCustomer; k++) {
 						if (itemHistory[k].equals(frequentItemSet[i][j])) {
 							tmp[index] = itemHistory[k];
 							index++;
@@ -311,7 +354,7 @@ public class Apriori {
 							// p = 0;
 							break;
 						}
-					for (int p = 0; p < 4; p++)
+					for (int p = 0; p < maxSize; p++)
 						if (data[k][p].equals(confidence[i])) {
 							dem++;
 							break;

@@ -33,6 +33,7 @@ import com.example.demo4.dto.MathangDTO;
 import com.example.demo4.dto.OrderDTO;
 import com.example.demo4.dto.TaikhoanDTO;
 import com.example.demo4.entity.Banggia;
+import com.example.demo4.entity.Hoadon;
 import com.example.demo4.entity.Khachhang;
 import com.example.demo4.entity.Mathang;
 import com.example.demo4.entity.Phieudat;
@@ -40,6 +41,8 @@ import com.example.demo4.entity.Quyen;
 import com.example.demo4.entity.Size;
 import com.example.demo4.entity.Taikhoan;
 import com.example.demo4.service.BangGiaService;
+import com.example.demo4.service.CTHDService;
+import com.example.demo4.service.HoaDonService;
 import com.example.demo4.service.KhachhangService;
 import com.example.demo4.service.MathangService;
 import com.example.demo4.service.PhieuDatService;
@@ -48,6 +51,7 @@ import com.example.demo4.service.TaikhoanService;
 
 
 import net.bytebuddy.implementation.bind.MethodDelegationBinder.ParameterBinding.Anonymous;
+
 
 @Controller
 public class HomeController {
@@ -63,6 +67,12 @@ public class HomeController {
    private SizeService sizeService;
    @Autowired
    private PhieuDatService phieuDatService;
+   @Autowired 
+   private CTHDService cthdService;
+   @Autowired
+   private HoaDonService hoaDonService;
+   @Autowired
+   private Apriori apriori;
 	@GetMapping("/")
 	public String viewHomePage(Model model) {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -142,11 +152,17 @@ public class HomeController {
 	    List<Khachhang> listkhachhang=khachhangService.getAllKhachhang();
 		model.addAttribute("listUsers", listkhachhang);
 		model.addAttribute("user", tk);
+		System.out.println(tk.getKhachhang().getMasothue());
 //		session.setAttribute("mySessionAttribute", tk.getTentk());
 		session.setAttribute("mySession", tk);
+//		List<Hoadon> listhoadon=hoaDonService.getLayDSHD();
 		if(tk.getQuyen().getTenquyen().equals("KHÁCH HÀNG")) {
+			System.out.println(1);
+			apriori.Apriori(tk.getKhachhang().getMasothue());
+			System.out.println(2);
 			return "redirect:/";
 		}
+	
 		return "views/users";
 	}
 	@GetMapping("/list_items")
