@@ -144,7 +144,7 @@ public class HomeController {
 		model.addAttribute("user", new Khachhang());
 		return "views/create_student";
 	}
-	@GetMapping("/list_users")
+	@GetMapping("/login_tk")
 	public String listUsers(Model model,HttpSession session) {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		String currentPricipalName = authentication.getName();
@@ -163,7 +163,7 @@ public class HomeController {
 			return "redirect:/";
 		}
 	
-		return "views/users";
+		return "redirect:/list_users";
 	}
 	@GetMapping("/list_items")
 	public String listItems(Model model) {
