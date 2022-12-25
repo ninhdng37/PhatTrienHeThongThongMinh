@@ -71,6 +71,16 @@ public class MathangServiceIImpl implements MathangService {
 		// TODO Auto-generated method stub
 		return mathangRepository.getInListID(ten);
 	}
+	@Override
+	public List<Mathang> getLayDSSP(String masothue) {
+		// TODO Auto-generated method stub
+		return mathangRepository.getLayDSSP(masothue);
+	}
+	@Override
+	public List<Mathang> getLayDSSPDAMUA(String masothue) {
+		// TODO Auto-generated method stub
+		return mathangRepository.getLayDSSPDAMUA(masothue);
+	}
 	
 	
 }

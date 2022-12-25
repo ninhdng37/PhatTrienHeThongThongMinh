@@ -16,5 +16,7 @@ public interface MathangService {
   Mathang getMHById(String id);
   List<Mathang> getMathangLast();
   List<Mathang> getInListID(String ten);
+  List<Mathang> getLayDSSP(String masothue);
+  List<Mathang> getLayDSSPDAMUA(String masothue);
 }
 

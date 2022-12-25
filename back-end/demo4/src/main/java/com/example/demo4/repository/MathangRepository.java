@@ -18,6 +18,10 @@ public interface MathangRepository extends JpaRepository<Mathang, String>{
     public List<Mathang> getMathangLast();
 	@Query(value = "CALL getListMHIn(:ten);", nativeQuery = true)
 	public List<Mathang> getInListID(@Param("ten") String ten);
+	@Query(value = "CALL SP_LAYDSSP(:masothue);",nativeQuery = true)
+	public List<Mathang> getLayDSSP(@Param("masothue") String masothue);
+	@Query(value = "CALL SP_LAYDSSPDAMUA(:masothue);",nativeQuery = true)
+	public List<Mathang> getLayDSSPDAMUA(@Param("masothue") String masothue);
 //	@Query("")
 //	public Mathang getInListID(String entity, String entityID, Class<E> type, List<String> isds);
 //}

@@ -78,7 +78,7 @@ public class HomeController {
 			}
 		}	
 		model.addAttribute("user",currentPricipalName);
-		System.out.print("hung3");
+//		System.out.print("hung3");
 		return "views/index";
 	}
 	@GetMapping("/register")
