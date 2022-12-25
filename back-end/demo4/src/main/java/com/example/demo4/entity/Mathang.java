@@ -38,16 +38,17 @@ public class Mathang implements java.io.Serializable {
 	private Set<Ctpd> ctpds = new HashSet<Ctpd>(0);
 	private Set<KhoMhSize> khoMhSizes = new HashSet<KhoMhSize>(0);
 	private Set<Danhgia> danhgias = new HashSet<Danhgia>(0);
-
+    private String nhan;
 	public Mathang() {
 	}
 
-	public Mathang(String mamh, Nhanhieu nhanhieu, String tenmh, String mota, int trangthai) {
+	public Mathang(String mamh, Nhanhieu nhanhieu, String tenmh, String mota, int trangthai,String nhan) {
 		this.mamh = mamh;
 		this.nhanhieu = nhanhieu;
 		this.tenmh = tenmh;
 		this.mota = mota;
 		this.trangthai = trangthai;
+		this.nhan=nhan;
 	}
 
 	public Mathang(String mamh, Chatlieu chatlieu, Loaikh loaikh, Loaimh loaimh, Nhanhieu nhanhieu, String tenmh,
@@ -73,6 +74,7 @@ public class Mathang implements java.io.Serializable {
 		this.ctpds = ctpds;
 		this.khoMhSizes = khoMhSizes;
 		this.danhgias = danhgias;
+		
 	}
 
 	@Id
@@ -117,7 +119,7 @@ public class Mathang implements java.io.Serializable {
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "MANH", nullable = false)
+	@JoinColumn(name = "MANH", nullable = true)
 	public Nhanhieu getNhanhieu() {
 		return this.nhanhieu;
 	}
@@ -134,17 +136,26 @@ public class Mathang implements java.io.Serializable {
 	public void setTenmh(String tenmh) {
 		this.tenmh = tenmh;
 	}
+	@Column(name = "NHAN", nullable = true)
+	public String getNhan() {
+		return nhan;
+	}
 
-	@Column(name = "MOTA", nullable = false, length = 500)
+	public void setNhan(String nhan) {
+		this.nhan = nhan;
+	}
+	@Column(name = "MOTA", nullable = true, length = 500)
 	public String getMota() {
 		return this.mota;
 	}
+
+	
 
 	public void setMota(String mota) {
 		this.mota = mota;
 	}
 
-	@Column(name = "TRANGTHAI", nullable = false)
+	@Column(name = "TRANGTHAI", nullable = true)
 	public int getTrangthai() {
 		return this.trangthai;
 	}

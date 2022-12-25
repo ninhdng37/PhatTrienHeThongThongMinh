@@ -88,9 +88,14 @@ public class Apriori {
 //		}
 
 		List<Mathang> listmathang = new ArrayList<Mathang>();
-
+		List<Double> avgList = new ArrayList<Double>();
+		for (int i = 0; i < sizeCustomer; i++) {
+			Double danhgia = danhGiaService.getLAYDANHGIA(itemHistory[i]);
+			avgList.add(danhgia);
+		}
+		bubbleSort1(itemHistory, avgList);
 		if (finaly.size() > 1) {
-			List<Double> avgList = new ArrayList<Double>();
+			avgList.clear();
 			for (int i = 0; i < finaly.size(); i++) {
 				Double danhgia = danhGiaService.getLAYDANHGIA(finaly.get(i));
 				avgList.add(danhgia);
@@ -112,25 +117,45 @@ public class Apriori {
 					Mathang mathang = mathangService.getMHById(finaly.get(i));
 					listmathang.add(mathang);
 				}
-				for (int i = finaly.size(); i < 5; i++) {
-					Mathang mathang = mathangService.getMHById(itemHistory[i]);
-					listmathang.add(mathang);
-					dem++;
+				if (sizeCustomer > 5 - finaly.size())
+					for (int i = finaly.size(); i < 5; i++) {
+						Mathang mathang = mathangService.getMHById(itemHistory[i]);
+						listmathang.add(mathang);
+						dem++;
+					}
+				else {
+					for (int i = finaly.size(); i < sizeCustomer; i++) {
+						Mathang mathang = mathangService.getMHById(itemHistory[i]);
+						listmathang.add(mathang);
+						dem++;
+					}
 				}
 			}
 		} else {
 			if (finaly.size() == 1) {
 				Mathang mathang = mathangService.getMHById(finaly.get(0));
 				listmathang.add(mathang);
-				for (int i = 0; i < 4; i++) {
-					mathang = mathangService.getMHById(itemHistory[i]);
-					listmathang.add(mathang);
-				}
+				if (sizeCustomer > 4)
+					for (int i = 0; i < 4; i++) {
+						mathang = mathangService.getMHById(itemHistory[i]);
+						listmathang.add(mathang);
+					}
+				else
+					for (int i = 0; i < sizeCustomer; i++) {
+						mathang = mathangService.getMHById(itemHistory[i]);
+						listmathang.add(mathang);
+					}
 			} else {
-				for (int i = 0; i < 5; i++) {
-					Mathang mathang = mathangService.getMHById(itemHistory[i]);
-					listmathang.add(mathang);
-				}
+				if (sizeCustomer > 5)
+					for (int i = 0; i < 5; i++) {
+						Mathang mathang = mathangService.getMHById(itemHistory[i]);
+						listmathang.add(mathang);
+					}
+				else
+					for (int i = 0; i < sizeCustomer; i++) {
+						Mathang mathang = mathangService.getMHById(itemHistory[i]);
+						listmathang.add(mathang);
+					}
 			}
 		}
 //		System.out.println("In list mat hang");
@@ -139,7 +164,7 @@ public class Apriori {
 //		System.out.println(mathang.getMamh());
 //		}
 //		System.out.println("ket thuc list mat hang");
-        return listmathang;
+		return listmathang;
 
 	}
 
@@ -459,5 +484,29 @@ public class Apriori {
 				break;
 		}
 
+	}
+
+	public void bubbleSort1(String itemHistory[], List<Double> avg) {
+		Double tmp1;
+		String tmp;
+		int i, j;
+		boolean swapped;
+		if(sizeCustomer == 0)
+			return;
+		for (i = 0; i < sizeCustomer - 1; i++) {
+			swapped = false;
+			for (j = 0; j < sizeCustomer - 1 - i; j++)
+				if (avg.get(j) < avg.get(j + 1)) {
+					tmp1 = avg.get(j);
+					tmp = itemHistory[j];
+					avg.set(j, avg.get(j + 1));
+					avg.set(j + 1, tmp1);
+					itemHistory[j] = itemHistory[j + 1];
+					itemHistory[j + 1] = tmp;
+					swapped = true;
+				}
+			if (!swapped)
+				break;
+		}
 	}
 }
