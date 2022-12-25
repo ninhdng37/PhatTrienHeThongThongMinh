@@ -49,70 +49,72 @@ import com.example.demo4.service.PhieuDatService;
 import com.example.demo4.service.SizeService;
 import com.example.demo4.service.TaikhoanService;
 
-
 import net.bytebuddy.implementation.bind.MethodDelegationBinder.ParameterBinding.Anonymous;
-
 
 @Controller
 public class HomeController {
 	@Autowired
 	private TaikhoanService taikhoanService;
 	@Autowired
-   private KhachhangService khachhangService;
-   @Autowired
-   private MathangService mathangService;
-   @Autowired
-   private BangGiaService bangGiaService;
-   @Autowired
-   private SizeService sizeService;
-   @Autowired
-   private PhieuDatService phieuDatService;
-   @Autowired 
-   private CTHDService cthdService;
-   @Autowired
-   private HoaDonService hoaDonService;
-   @Autowired
-   private Apriori apriori;
+	private KhachhangService khachhangService;
+	@Autowired
+	private MathangService mathangService;
+	@Autowired
+	private BangGiaService bangGiaService;
+	@Autowired
+	private SizeService sizeService;
+	@Autowired
+	private PhieuDatService phieuDatService;
+	@Autowired
+	private CTHDService cthdService;
+	@Autowired
+	private HoaDonService hoaDonService;
+	@Autowired
+	private Apriori apriori;
+
 	@GetMapping("/")
 	public String viewHomePage(Model model) {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		String currentPricipalName = authentication.getName();
 		System.out.print(currentPricipalName);
 		if (!currentPricipalName.equals("anonymousUser")) {
-			Taikhoan tk=taikhoanService.findByTaikhoan(currentPricipalName);
+			Taikhoan tk = taikhoanService.findByTaikhoan(currentPricipalName);
 			System.out.print(tk.getQuyen().getMaquyen());
 			if (tk.getQuyen().getTenquyen().equals("ADMIN")) {
-				currentPricipalName="ADMIN";
-			}else{
-				currentPricipalName="USER";
+				currentPricipalName = "ADMIN";
+			} else {
+				currentPricipalName = "USER";
 			}
-		}	
-		model.addAttribute("user",currentPricipalName);
+		}
+		model.addAttribute("user", currentPricipalName);
 //		System.out.print("hung3");
 		return "views/index";
 	}
+
 	@GetMapping("/register")
 	public String showRegistrationForm(Model model) {
 		model.addAttribute("tk", new Taikhoan());
-		
+
 		return "views/signup_form";
 	}
+
 	@GetMapping("/login")
 	public String showlogin(Model model) {
 		return "views/login";
 	}
+
 	@PostMapping("/process_register")
 	public String processRegister(Taikhoan tk) {
-		String KH="KH";
+		String KH = "KH";
 		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 		String encodedPassword = passwordEncoder.encode(tk.getMatkhau());
-		Quyen quyen=new Quyen();
-		Khachhang khachhang=new Khachhang();
-		Khachhang khachhang2=khachhangService.getkhachhangLast();
+		Quyen quyen = new Quyen();
+		Khachhang khachhang = new Khachhang();
+		Khachhang khachhang2 = khachhangService.getkhachhangLast();
 		System.out.println(khachhang2.getMakh().substring(2, 3));
-	   String h1=khachhang2.getMakh().replace("KH", "");
-	   Integer h2=Integer.parseInt(h1)+1;
-	   System.out.println(h2);
+		String h1 = khachhang2.getMakh().replace("KH", "");
+		Integer h2 = Integer.parseInt(h1) + 1;
+		System.out.println(h2);
 		khachhang.setMakh(KH.concat(h2.toString()));
 		khachhang.setEmail(tk.getTentk());
 		khachhangService.save(khachhang);
@@ -121,107 +123,115 @@ public class HomeController {
 		tk.setQuyen(quyen);
 		tk.setKhachhang(khachhang);
 		taikhoanService.save(tk);
-		
+
 		return "views/register_success";
 	}
-	
-	@PostMapping("/users")
-	public String addUser(Khachhang kh,Model model) {
-		String KH="KH";
-		Khachhang khachhang2=khachhangService.getkhachhangLast();
-		System.out.println(khachhang2.getMakh().substring(2, 3));
-	   String h1=khachhang2.getMakh().replace("KH", "");
-	   Integer h2=Integer.parseInt(h1)+1;
-	   System.out.println(h2);
-		kh.setMakh(KH.concat(h2.toString()));
-		khachhangService.save(kh);
-		List<Khachhang> listkhachhang=khachhangService.getAllKhachhang();
-		model.addAttribute("listUsers", listkhachhang);
-		return "views/users";
-	}
-	@GetMapping("/user_new")
-	public String showAddUser(Model model) {
-		model.addAttribute("user", new Khachhang());
-		return "views/create_student";
-	}
+
+//	@PostMapping("/users")
+//	public String addUser(Khachhang kh,Model model) {
+//		String KH="KH";
+//		Khachhang khachhang2=khachhangService.getkhachhangLast();
+//		System.out.println(khachhang2.getMakh().substring(2, 3));
+//	   String h1=khachhang2.getMakh().replace("KH", "");
+//	   Integer h2=Integer.parseInt(h1)+1;
+//	   System.out.println(h2);
+//		kh.setMakh(KH.concat(h2.toString()));
+//		khachhangService.save(kh);
+//		List<Khachhang> listkhachhang=khachhangService.getAllKhachhang();
+//		model.addAttribute("listUsers", listkhachhang);
+//		return "views/users";
+//	}
+//	@GetMapping("/user_new")
+//	public String showAddUser(Model model) {
+//		model.addAttribute("user", new Khachhang());
+//		return "views/create_student";
+//	}
 	@GetMapping("/login_tk")
-	public String listUsers(Model model,HttpSession session) {
+	public String listUsers(Model model, HttpSession session) {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		String currentPricipalName = authentication.getName();
-		Taikhoan tk=taikhoanService.findByTaikhoan(currentPricipalName);
-	    List<Khachhang> listkhachhang=khachhangService.getAllKhachhang();
+		Taikhoan tk = taikhoanService.findByTaikhoan(currentPricipalName);
+		List<Khachhang> listkhachhang = khachhangService.getAllKhachhang();
 		model.addAttribute("listUsers", listkhachhang);
 		model.addAttribute("user", tk);
 		System.out.println(tk.getKhachhang().getMasothue());
 //		session.setAttribute("mySessionAttribute", tk.getTentk());
 		session.setAttribute("mySession", tk);
 //		List<Hoadon> listhoadon=hoaDonService.getLayDSHD();
-		if(tk.getQuyen().getTenquyen().equals("KHÁCH HÀNG")) {
+		if (tk.getQuyen().getTenquyen().equals("KHÁCH HÀNG")) {
 			System.out.println(1);
-			apriori.Apriori(tk.getKhachhang().getMasothue());
+			List<Mathang> listmhdanhgia = apriori.Apriori(tk.getKhachhang().getMasothue());
+			for(Mathang mathang : listmhdanhgia) {
+				System.out.println(mathang.getMamh());
+			}
+			model.addAttribute("listItem", listmhdanhgia);
 			System.out.println(2);
 			return "redirect:/";
 		}
-	
+
 		return "redirect:/list_users";
 	}
+
 	@GetMapping("/list_items")
 	public String listItems(Model model) {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		String currentPricipalName = authentication.getName();
 		System.out.print(currentPricipalName);
 		if (!currentPricipalName.equals("anonymousUser")) {
-			Taikhoan tk=taikhoanService.findByTaikhoan(currentPricipalName);
+			Taikhoan tk = taikhoanService.findByTaikhoan(currentPricipalName);
 			if (tk.getQuyen().getTenquyen().equals("ADMIN")) {
-				currentPricipalName="ADMIN";
-			}else{
-				currentPricipalName="USER";
+				currentPricipalName = "ADMIN";
+			} else {
+				currentPricipalName = "USER";
 			}
 		}
-		List<MathangDTO> listmhDTO=new ArrayList<MathangDTO>();
-		model.addAttribute("user",currentPricipalName);
-		List<Mathang> listmathang=mathangService.getAllMathang();
-		List<Mathang> listmathanglast=mathangService.getMathangLast();
-		Integer index= listmathanglast.size();
+		List<MathangDTO> listmhDTO = new ArrayList<MathangDTO>();
+		model.addAttribute("user", currentPricipalName);
+		List<Mathang> listmathang = mathangService.getAllMathang();
+		List<Mathang> listmathanglast = mathangService.getMathangLast();
+		Integer index = listmathanglast.size();
 //		System.out.println(listmathanglast.get(index-1).getMamh());
 //		System.out.print(listmathanglast);
-		List<Banggia> banggia2=new ArrayList<Banggia>();
-		List<Mathang> listmathang2=new ArrayList<Mathang>();
-		for (Mathang items: listmathang) {
+		List<Banggia> banggia2 = new ArrayList<Banggia>();
+		List<Mathang> listmathang2 = new ArrayList<Mathang>();
+		for (Mathang items : listmathang) {
 			banggia2.add(bangGiaService.getBanggiaLast(items.getMamh()));
 //			System.out.println(items.getMamh());
 		}
-		for (Banggia gia:banggia2) {
+		for (Banggia gia : banggia2) {
 		}
-		for (Mathang items: listmathang) {
+		for (Mathang items : listmathang) {
 			listmhDTO.add(mathangService.getmathanggia(items, bangGiaService.getBanggiaLast(items.getMamh())));
 		}
-		model.addAttribute("listmathang",listmhDTO);
+		model.addAttribute("listmathang", listmhDTO);
 		model.addAttribute("gia", banggia2);
 		return "views/items";
 	}
+
 	@GetMapping("user_edit/{makh}")
-	public String editUser(Model model,@PathVariable String makh) {
-		model.addAttribute("user",khachhangService.getKhachhangById(makh));
+	public String editUser(Model model, @PathVariable String makh) {
+		model.addAttribute("user", khachhangService.getKhachhangById(makh));
 		return "views/edit_user";
 	}
+
 	@PostMapping("user_edit/{makh}")
-	public String updateUser(Model model,Khachhang kh,@PathVariable String makh) {
-		Khachhang exitkh=khachhangService.getKhachhangById(makh);
+	public String updateUser(Model model, Khachhang kh, @PathVariable String makh) {
+		Khachhang exitkh = khachhangService.getKhachhangById(makh);
 		exitkh.setHotenkh(kh.getHotenkh());
 		exitkh.setSocmnd(kh.getSocmnd());
 		exitkh.setEmail(kh.getEmail());
 		khachhangService.save(exitkh);
-		List<Khachhang> lisUsers=khachhangService.getAllKhachhang();
+		List<Khachhang> lisUsers = khachhangService.getAllKhachhang();
 		model.addAttribute("listUsers", lisUsers);
 		return "views/users";
 	}
+
 	@GetMapping("items_info/{mamh}")
-	public String showitems(Model model,@PathVariable String mamh) {
-		Mathang mathang=mathangService.getMHById(mamh);
-		MathangDTO mathangDTO=new MathangDTO();
-		mathangDTO=mathangService.getmathanggia(mathang, bangGiaService.getBanggiaLast(mamh));
-		List<Size> sizes=sizeService.getAllSize();
+	public String showitems(Model model, @PathVariable String mamh) {
+		Mathang mathang = mathangService.getMHById(mamh);
+		MathangDTO mathangDTO = new MathangDTO();
+		mathangDTO = mathangService.getmathanggia(mathang, bangGiaService.getBanggiaLast(mamh));
+		List<Size> sizes = sizeService.getAllSize();
 		model.addAttribute("sizes", sizes);
 		model.addAttribute("mathang", mathangDTO);
 		String listMHStr = getRecommendation(mamh);
@@ -232,71 +242,74 @@ public class HomeController {
 		model.addAttribute("listMathang", mathangService.getInListID(tmp));
 		return "views/item_detail_1";
 	}
-	public String getRecommendation(String maMH){
+
+	public String getRecommendation(String maMH) {
 		String s = null;
 		String str = null;
-        try {
+		try {
 
-            // run the Unix "ps -ef" command
-            // using the Runtime exec method:
-        	String cmd = "python C:\\Users\\ADMIN\\Downloads\\hung\\test.py "+ maMH;
-            Process p = Runtime.getRuntime().exec(cmd);
+			// run the Unix "ps -ef" command
+			// using the Runtime exec method:
+			String cmd = "python C:\\Users\\ADMIN\\Downloads\\hung\\test.py " + maMH;
+			Process p = Runtime.getRuntime().exec(cmd);
 
-            BufferedReader stdInput = new BufferedReader(new InputStreamReader(p.getInputStream()));
+			BufferedReader stdInput = new BufferedReader(new InputStreamReader(p.getInputStream()));
 
-            BufferedReader stdError = new BufferedReader(new InputStreamReader(p.getErrorStream()));
-            
-            // read the output from the command
-            System.out.println("Here is the standard output of the command:\n");
-            while ((s = stdInput.readLine()) != null) {
-                System.out.println(s);
+			BufferedReader stdError = new BufferedReader(new InputStreamReader(p.getErrorStream()));
 
-                str = s;
-            }
+			// read the output from the command
+			System.out.println("Here is the standard output of the command:\n");
+			while ((s = stdInput.readLine()) != null) {
+				System.out.println(s);
 
-            // read any errors from the attempted command
-            System.out.println("Here is the standard error of the command (if any):\n");
-            while ((s = stdError.readLine()) != null) {
-                System.out.println(s);
-            }
+				str = s;
+			}
 
-            //System.exit(0);
-        } catch (IOException e) {
-            System.out.println("exception happened - here's what I know: ");
-            e.printStackTrace();
-            //System.exit(-1);
-        }
+			// read any errors from the attempted command
+			System.out.println("Here is the standard error of the command (if any):\n");
+			while ((s = stdError.readLine()) != null) {
+				System.out.println(s);
+			}
+
+			// System.exit(0);
+		} catch (IOException e) {
+			System.out.println("exception happened - here's what I know: ");
+			e.printStackTrace();
+			// System.exit(-1);
+		}
 		return str;
-		
+
 	}
+
 	@GetMapping("shopping_cart")
 	public String showcartshopping(HttpSession session) {
-		OrderDTO orderDTO=(OrderDTO) session.getAttribute("order");
+		OrderDTO orderDTO = (OrderDTO) session.getAttribute("order");
 		session.setAttribute("order", orderDTO);
 		return "views/shopping_cart";
 	}
+
 	@GetMapping("add_item_cart/{mamh}")
-	public String showCart(Model model,HttpServletRequest request,@PathVariable String mamh,HttpSession session) {
-		int quantity=1;
-		Integer id=1;
+	public String showCart(Model model, HttpServletRequest request, @PathVariable String mamh, HttpSession session) {
+		int quantity = 1;
+		Integer id = 1;
 		String mamh2;
-		if (mamh!=null) {
-			 mamh2=mamh;
-			Mathang mathang=mathangService.getMHById(mamh2);
-			MathangDTO mathangDTO=mathangService.getmathanggia(mathang, bangGiaService.getBanggiaLast(mamh2));
-			if (mathangDTO!=null) {
-				if (request.getParameter("quantity")!=null) {
-					quantity=Integer.parseInt(request.getParameter("quantity"));
+		if (mamh != null) {
+			mamh2 = mamh;
+			Mathang mathang = mathangService.getMHById(mamh2);
+			MathangDTO mathangDTO = mathangService.getmathanggia(mathang, bangGiaService.getBanggiaLast(mamh2));
+			if (mathangDTO != null) {
+				if (request.getParameter("quantity") != null) {
+					quantity = Integer.parseInt(request.getParameter("quantity"));
 					System.out.println(request.getParameter("quantity"));
 				}
-				if (session.getAttribute("order")==null) {
-					Taikhoan taikhoan=(Taikhoan) session.getAttribute("mySession");
-					TaikhoanDTO taikhoanDTO=new TaikhoanDTO();
+				if (session.getAttribute("order") == null) {
+					Taikhoan taikhoan = (Taikhoan) session.getAttribute("mySession");
+					TaikhoanDTO taikhoanDTO = new TaikhoanDTO();
 					taikhoanDTO.setTentk(taikhoan.getTentk());
 					taikhoanDTO.setRole(taikhoan.getQuyen().getMaquyen());
-					OrderDTO orderDTO=new OrderDTO();
-					List<Item> items=new ArrayList<Item>();
-					Item item=new Item();
+					OrderDTO orderDTO = new OrderDTO();
+					List<Item> items = new ArrayList<Item>();
+					Item item = new Item();
 					item.setId(id);
 					item.setQuantity(quantity);
 					item.setMathangDTO(mathangDTO);
@@ -305,19 +318,19 @@ public class HomeController {
 					orderDTO.setItems(items);
 					orderDTO.setCustomer(taikhoanDTO);
 					session.setAttribute("order", orderDTO);
-				}else {
-					OrderDTO orderDTO=(OrderDTO) session.getAttribute("order");
-					List<Item> listitems=orderDTO.getItems();
-					boolean check=false;
-					for(Item item:listitems) {
+				} else {
+					OrderDTO orderDTO = (OrderDTO) session.getAttribute("order");
+					List<Item> listitems = orderDTO.getItems();
+					boolean check = false;
+					for (Item item : listitems) {
 						if (item.getMathangDTO().getMamh().equals(mathangDTO.getMamh())) {
-							item.setQuantity(item.getQuantity()+quantity);
-							item.setId(id+item.getId());
-							check=true;
+							item.setQuantity(item.getQuantity() + quantity);
+							item.setId(id + item.getId());
+							check = true;
 						}
 					}
-					if(check==false) {
-						Item item=new Item();
+					if (check == false) {
+						Item item = new Item();
 						item.setQuantity(quantity);
 						item.setMathangDTO(mathangDTO);
 						item.setGia(mathangDTO.getGia());
@@ -330,37 +343,39 @@ public class HomeController {
 		}
 		return "redirect:/shopping_cart";
 	}
+
 	@PostMapping("shopping_cart/update")
-	public String updateshoppingcart(Model model,HttpSession session,@RequestParam("productId") String productid,@RequestParam("quantity") Integer quantity) {
-		Mathang mathang=mathangService.getMHById(productid);
-		MathangDTO mathangDTO=mathangService.getmathanggia(mathang, bangGiaService.getBanggiaLast(productid));
-		if (session.getAttribute("order")==null) {
-			OrderDTO orderDTO=new OrderDTO();
-			List<Item> items=new ArrayList<Item>();
-			Item item=new Item();
+	public String updateshoppingcart(Model model, HttpSession session, @RequestParam("productId") String productid,
+			@RequestParam("quantity") Integer quantity) {
+		Mathang mathang = mathangService.getMHById(productid);
+		MathangDTO mathangDTO = mathangService.getmathanggia(mathang, bangGiaService.getBanggiaLast(productid));
+		if (session.getAttribute("order") == null) {
+			OrderDTO orderDTO = new OrderDTO();
+			List<Item> items = new ArrayList<Item>();
+			Item item = new Item();
 			item.setQuantity(quantity);
 			item.setMathangDTO(mathangDTO);
 			item.setGia(mathangDTO.getGia());
 			items.add(item);
 			orderDTO.setItems(items);
 			session.setAttribute("order", orderDTO);
-		}else {
-			OrderDTO orderDTO=(OrderDTO) session.getAttribute("order");
-			List<Item> listitems=orderDTO.getItems();
-			
-			boolean check=false;
-			Integer sum=0;
-			for(int i=0;i<listitems.size();i++) {
+		} else {
+			OrderDTO orderDTO = (OrderDTO) session.getAttribute("order");
+			List<Item> listitems = orderDTO.getItems();
+
+			boolean check = false;
+			Integer sum = 0;
+			for (int i = 0; i < listitems.size(); i++) {
 				if (listitems.get(i).getMathangDTO().getMamh().equals(mathangDTO.getMamh())) {
 					System.out.println(listitems.get(i).getMathangDTO().getMamh());
 					listitems.get(i).setQuantity(quantity);
-					check=true;
+					check = true;
 				}
-				sum+=listitems.get(i).getQuantity()*listitems.get(i).getGia();
+				sum += listitems.get(i).getQuantity() * listitems.get(i).getGia();
 			}
 			System.out.println(sum);
-			if(check==false) {
-				Item item=new Item();
+			if (check == false) {
+				Item item = new Item();
 				item.setQuantity(quantity);
 				item.setMathangDTO(mathangDTO);
 				item.setGia(mathangDTO.getGia());
@@ -370,20 +385,21 @@ public class HomeController {
 		}
 		return "redirect:/shopping_cart";
 	}
+
 	@GetMapping("remove_item/{mamh}")
-	public String removeItem(Model mode,@PathVariable String mamh,HttpSession session) {
-		int quantity=1;
+	public String removeItem(Model mode, @PathVariable String mamh, HttpSession session) {
+		int quantity = 1;
 //		Integer id=1;
 		String mamh2;
-		if (mamh!=null) {
-			 mamh2=mamh;
-			Mathang mathang=mathangService.getMHById(mamh2);
-			MathangDTO mathangDTO=mathangService.getmathanggia(mathang, bangGiaService.getBanggiaLast(mamh2));
-			if (mathangDTO!=null) {
-				if (session.getAttribute("order")==null) {
-					OrderDTO orderDTO=new OrderDTO();
-					List<Item> items=new ArrayList<Item>();
-					Item item=new Item();
+		if (mamh != null) {
+			mamh2 = mamh;
+			Mathang mathang = mathangService.getMHById(mamh2);
+			MathangDTO mathangDTO = mathangService.getmathanggia(mathang, bangGiaService.getBanggiaLast(mamh2));
+			if (mathangDTO != null) {
+				if (session.getAttribute("order") == null) {
+					OrderDTO orderDTO = new OrderDTO();
+					List<Item> items = new ArrayList<Item>();
+					Item item = new Item();
 //					item.setId(id);
 					item.setQuantity(quantity);
 					item.setMathangDTO(mathangDTO);
@@ -391,10 +407,10 @@ public class HomeController {
 					items.add(item);
 					orderDTO.setItems(items);
 					session.setAttribute("order", orderDTO);
-				}else {
-					OrderDTO orderDTO=(OrderDTO) session.getAttribute("order");
-					List<Item> listitems=orderDTO.getItems();
-					boolean check=false;
+				} else {
+					OrderDTO orderDTO = (OrderDTO) session.getAttribute("order");
+					List<Item> listitems = orderDTO.getItems();
+					boolean check = false;
 //					for(Item item:listitems) {
 //						if (item.getMathangDTO().getMamh().equals(mathangDTO.getMamh())) {
 //							System.out.print(item.getMathangDTO().getMamh());
@@ -402,16 +418,16 @@ public class HomeController {
 //							check=true;
 //						}
 //					}
-					for(int i=0;i<listitems.size();i++) {
+					for (int i = 0; i < listitems.size(); i++) {
 						if (listitems.get(i).getMathangDTO().getMamh().equals(mathangDTO.getMamh())) {
 							System.out.println(listitems.get(i).getMathangDTO().getMamh());
 							listitems.remove(i);
-							check=true;
+							check = true;
 						}
-						
+
 					}
-					if(check==false) {
-						Item item=new Item();
+					if (check == false) {
+						Item item = new Item();
 						item.setQuantity(quantity);
 						item.setMathangDTO(mathangDTO);
 						item.setGia(mathangDTO.getGia());
@@ -424,23 +440,24 @@ public class HomeController {
 		}
 		return "redirect:/shopping_cart";
 	}
-		
+
 	@PostMapping("/insert_items_cart")
-	public String insertItemsCart(Model model,HttpSession session) {
-		OrderDTO orderDTO=(OrderDTO) session.getAttribute("order");
-		String tentk=orderDTO.getCustomer().getTentk();
-		Taikhoan taikhoan=taikhoanService.findByTaikhoan(tentk);
-		Phieudat phieudat=new Phieudat();
+	public String insertItemsCart(Model model, HttpSession session) {
+		OrderDTO orderDTO = (OrderDTO) session.getAttribute("order");
+		String tentk = orderDTO.getCustomer().getTentk();
+		Taikhoan taikhoan = taikhoanService.findByTaikhoan(tentk);
+		Phieudat phieudat = new Phieudat();
 		phieudat.setMapd("PD11");
 		phieudat.setKhachhang(taikhoan.getKhachhang());
 		phieuDatService.save(phieudat);
 		return "redirect:/";
 	}
-	@GetMapping("/list_users/{makh}")
-	public String deleteUser(Model model,@PathVariable String makh) {
-		khachhangService.deleteKhachhangById(makh);
-		return "redirect:/list_users";
-	}
+
+//	@GetMapping("/list_users/{makh}")
+//	public String deleteUser(Model model,@PathVariable String makh) {
+//		khachhangService.deleteKhachhangById(makh);
+//		return "redirect:/list_users";
+//	}
 	@PostMapping("/logout")
 	public String logout(HttpSession session) {
 		session.removeAttribute("mySession");
