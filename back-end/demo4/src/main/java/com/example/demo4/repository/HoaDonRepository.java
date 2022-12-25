@@ -14,4 +14,7 @@ public interface HoaDonRepository extends JpaRepository<Hoadon, String> {
 //	public List<Mathang> getInListID(@Param("ten") String ten);
 	@Query(value = "CALL SP_LAYDSHD(:masothue)",nativeQuery = true)
 	public List<Hoadon> getLayDSHD(@Param("masothue") String masothue);
+	
+	@Query(value = "CALL SP_KIEMTRAHD(:masothue)",nativeQuery = true)
+	public Integer getLaySP_KIEMTRAHD(@Param("masothue") String masothue);
 }

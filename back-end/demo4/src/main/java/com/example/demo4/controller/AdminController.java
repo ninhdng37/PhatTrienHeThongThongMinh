@@ -116,9 +116,9 @@ public class AdminController {
 		ProductBrand=0.2D;
 	}
 	 String label=  readPython.ReadPython(ProductBrand, Material, ProductionWay);
-//	   mh.setNhan("0");
+	mh.setNhan(label.trim());
 //	 System.out.println("error");
-	 System.out.println(label);
+//	 System.out.print(label.trim());
 //	 System.out.println("error2");
 	   mathangService.save(mh);
 	   return "redirect:/product";

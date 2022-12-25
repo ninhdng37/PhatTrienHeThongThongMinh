@@ -53,7 +53,11 @@ public class Apriori {
 	private static int sizeAll = 0;
 
 	public List<Mathang> Apriori(String masothue) {
-
+        Integer kiemtra=hoaDonService.getLaySP_KIEMTRAHD(masothue);
+//        if (kiemtra==0) {
+//			List<Mathang> mathangs=new ArrayList<Mathang>();
+//			return null;
+//		}
 		List<Cthd> listcthd = cthdService.getLayDSCTHD(masothue);
 		List<Hoadon> listhoadon = hoaDonService.getLayDSHD(masothue);
 		List<Mathang> listmathangAll = mathangService.getLayDSSP(masothue);

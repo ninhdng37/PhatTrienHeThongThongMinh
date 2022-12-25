@@ -16,5 +16,10 @@ public class HoaDonServiceImpl implements HoaDonService{
 		// TODO Auto-generated method stub
 		return hoaDonRepository.getLayDSHD(masothue);
 	}
+	@Override
+	public Integer getLaySP_KIEMTRAHD(String masothue) {
+		// TODO Auto-generated method stub
+		return hoaDonRepository.getLaySP_KIEMTRAHD(masothue);
+	}
 
 }

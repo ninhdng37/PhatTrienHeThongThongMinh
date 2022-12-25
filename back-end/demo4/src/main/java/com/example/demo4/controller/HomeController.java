@@ -33,6 +33,7 @@ import com.example.demo4.dto.MathangDTO;
 import com.example.demo4.dto.OrderDTO;
 import com.example.demo4.dto.TaikhoanDTO;
 import com.example.demo4.entity.Banggia;
+import com.example.demo4.entity.Danhgia;
 import com.example.demo4.entity.Hoadon;
 import com.example.demo4.entity.Khachhang;
 import com.example.demo4.entity.Mathang;
@@ -252,7 +253,19 @@ public class HomeController {
 		tmp = tmp.replace("]", "");
 		tmp = tmp.replace(" ", "");
 		model.addAttribute("listMathang", mathangService.getInListID(tmp));
+//		Danhgia danhgia = new Danhgia();
+//		model.addAttribute("danhgia", danhgia);
 		return "views/item_detail_1";
+	}
+	
+	@PostMapping("items_info/rating")
+	public String danhGia(@RequestParam("starNumber")String starNumber) {
+		Danhgia danhgia = new Danhgia();
+		danhgia.setDanhgia(Integer.parseInt(starNumber));
+		System.out.println("get danh gia");
+		System.out.println(danhgia.getDanhgia());
+
+		return "redirect:/";
 	}
 
 	public String getRecommendation(String maMH) {

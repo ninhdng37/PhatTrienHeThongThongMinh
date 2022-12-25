@@ -95,8 +95,8 @@ signInPopover.mouseleave(() => {
     
     // JUST RESPONSE (Not needed)
     var ratingValue = parseInt($('#stars li.selected').last().data('value'), 10);
-    starNumberInput.value = ratingValue;
-	  		console.log(starNumberInput);
+    starNumberInput.attr('value',ratingValue);
+	 console.log(starNumberInput);
     
     
   });

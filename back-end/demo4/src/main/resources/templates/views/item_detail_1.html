@@ -316,22 +316,12 @@
 	    </ul>
 	  </div>
 	  <div class="container">
-	  
-<!-- 	    <form method="post" th:object="${rating}" class="mt-5"> -->
-	
-<!-- 	        <input value="0" type="hidden" class="rating" data-glyphicon="0" id='starNumber' -->
-<!-- 	               th:field="*{stars}"> -->
-	
-<!-- 	        <button class="btn btn-primary" type="submit">Submit form</button> -->
-<!-- 	    </form> -->
-	        <form method="post" th:object="${danhgia}"  class="mt-5">
-	
-	        <input value="0" type="hidden" class="rating" data-glyphicon="0" id='starNumber'
-	            >
-	
+
+	        <form method="post" th:action="@{/items_info/rating}" class="mt-5">
+	       		<input type="hidden" class="rating" data-glyphicon="0" id='starNumber' th:name='starNumber'/>
 	        <button class="btn btn-primary" type="submit">Submit form</button>
 	    </form>
-	
+		
 	</div>
 	 
 	  
