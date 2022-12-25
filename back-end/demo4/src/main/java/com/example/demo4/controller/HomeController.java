@@ -71,6 +71,10 @@ public class HomeController {
 	private HoaDonService hoaDonService;
 	@Autowired
 	private Apriori apriori;
+	
+	private List<Mathang> listmhdanhgia = new ArrayList<Mathang>();
+
+	
 
 	@GetMapping("/")
 	public String viewHomePage(Model model) {
@@ -87,7 +91,15 @@ public class HomeController {
 			}
 		}
 		model.addAttribute("user", currentPricipalName);
+		System.out.println(3);
+		for(Mathang mathang : listmhdanhgia) {
+			System.out.println(mathang.getMamh());
+		}
+		if (listmhdanhgia.size() > 0) {
+			model.addAttribute("listmathang", listmhdanhgia);
+		}
 //		System.out.print("hung3");
+		
 		return "views/index";
 	}
 
@@ -160,11 +172,11 @@ public class HomeController {
 //		List<Hoadon> listhoadon=hoaDonService.getLayDSHD();
 		if (tk.getQuyen().getTenquyen().equals("KHÁCH HÀNG")) {
 			System.out.println(1);
-			List<Mathang> listmhdanhgia = apriori.Apriori(tk.getKhachhang().getMasothue());
+			listmhdanhgia = apriori.Apriori(tk.getKhachhang().getMasothue());
 			for(Mathang mathang : listmhdanhgia) {
 				System.out.println(mathang.getMamh());
 			}
-			model.addAttribute("listItem", listmhdanhgia);
+
 			System.out.println(2);
 			return "redirect:/";
 		}

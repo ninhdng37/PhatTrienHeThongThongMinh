@@ -47,10 +47,9 @@
 					class="logo" />
 			</div>
 			<div>
-				<a href="#" class="fs-small"><span
-					class="signin-popover m-0">Sign In</span></a> <a href="#"
-					class="fs-small"><i class="fa-regular fa-heart"></i></a> <a
-					href="#" class="fs-small bag-popover" data-bs-toggle="popover"><i
+				<a href="#" class="fs-small"><span class="signin-popover m-0">Sign
+						In</span></a> <a href="#" class="fs-small"><i class="fa-regular fa-heart"></i></a>
+				<a href="#" class="fs-small bag-popover" data-bs-toggle="popover"><i
 					class="fa-sharp fa-solid fa-bag-shopping"></i>&nbsp; Bag</a>
 			</div>
 		</div>
@@ -191,7 +190,8 @@
 	<!-- CHUA DANG NHAP   -->
 
 	<!-- Carousel products -->
-	<section class="carousel-products mt-4 pt-4" th:if="${user=='anonymousUser'}">
+	<section class="carousel-products mt-4 pt-4"
+		th:if="${user=='anonymousUser'}">
 		<div class="owl-carousel">
 			<div class="contents">
 				<div class="child--1 text-center">
@@ -200,8 +200,7 @@
 				</div>
 				<div class="child--2">
 					<p class="child--1 text-uppercase fw-light no-mp"
-						style="font-size: 1rem; letter-spacing: 2px">
-						exquisite gucci</p>
+						style="font-size: 1rem; letter-spacing: 2px">exquisite gucci</p>
 					<p class="child--2 fs-lg ls-sm no-mp" style="color: #313131">
 						Gucci HA HA HA denim jacket</p>
 				</div>
@@ -218,8 +217,7 @@
 				</div>
 				<div class="child--2">
 					<p class="child--1 text-uppercase fw-light no-mp"
-						style="font-size: 1rem; letter-spacing: 2px">
-						gucci gift</p>
+						style="font-size: 1rem; letter-spacing: 2px">gucci gift</p>
 					<p class="child--2 fs-lg ls-sm no-mp" style="color: #313131">
 						Ophidia GG zip around wallet</p>
 				</div>
@@ -238,8 +236,7 @@
 				</div>
 				<div class="child--2">
 					<p class="child--1 text-uppercase fw-light no-mp"
-						style="font-size: 1rem; letter-spacing: 2px">
-						gucci gift</p>
+						style="font-size: 1rem; letter-spacing: 2px">gucci gift</p>
 					<p class="child--2 fs-lg ls-sm no-mp" style="color: #313131">
 						Ophidia GG mini bag</p>
 				</div>
@@ -255,8 +252,7 @@
 				</div>
 				<div class="child--2">
 					<p class="child--1 text-uppercase fw-light no-mp"
-						style="font-size: 1rem; letter-spacing: 2px">
-						gucci gift</p>
+						style="font-size: 1rem; letter-spacing: 2px">gucci gift</p>
 					<p class="child--2 fs-lg ls-sm no-mp" style="color: #313131">
 						Ophidia small handbag</p>
 				</div>
@@ -272,8 +268,7 @@
 				</div>
 				<div class="child--2">
 					<p class="child--1 text-uppercase fw-light no-mp"
-						style="font-size: 1rem; letter-spacing: 2px">
-						gucci gift</p>
+						style="font-size: 1rem; letter-spacing: 2px">gucci gift</p>
 					<p class="child--2 fs-lg ls-sm no-mp" style="color: #313131">
 						Women's GG Gucci Tennis 1977 sneaker</p>
 				</div>
@@ -292,26 +287,27 @@
 
 
 	<!-- DA DANG NHAP ROI  -->
-	<section class="carousel-products mt-4 pt-4" th:if="${user!='anonymousUser'}">
+	<section class="carousel-products mt-4 pt-4"
+		th:if="${user!='anonymousUser'}">
 		<div class="owl-carousel">
 
-
-			<div class="contents">
+			<div class="contents" th:each="item : ${listmathang}" >
 				<div class="child--1 text-center">
 					<img style="width: auto !important; margin: auto"
-						src="images/Women_s GG Gucci Tennis 1977 sneaker.png" alt="" />
+						src="images/Gucci HA HA HA denim jacket.png" alt="" />
 				</div>
 				<div class="child--2">
 					<p class="child--1 text-uppercase fw-light no-mp"
-						style="font-size: 1rem; letter-spacing: 2px">gucci gift</p>
-					<p class="child--2 fs-lg ls-sm no-mp" style="color: #313131">Women's
-						GG Gucci Tennis 1977 sneaker</p>
+						style="font-size: 1rem; letter-spacing: 2px" >exquisite gucci</p>
+					<p class="child--2 fs-lg ls-sm no-mp" style="color: #313131" th:text="${item.tenmh}">
+						Gucci HA HA HA denim jacket</p>
 				</div>
 				<div class="child--3">
 					<button class="text-uppercase btn-products py-2 mt-4 px-4">
 						shop now</button>
 				</div>
 			</div>
+             
 		</div>
 	</section>
 	<!-- DA DANG NHAP ROI  -->
@@ -335,8 +331,7 @@
 		</div>
 		<div class="child--2" style="transform: translateY(-90%)">
 			<p class="child--1 text-uppercase fw-light no-mp"
-				style="font-size: 1rem; letter-spacing: 2px">gucci
-				gift</p>
+				style="font-size: 1rem; letter-spacing: 2px">gucci gift</p>
 			<p class="child--2 fs-lg ls-sm no-mp" style="color: #313131">
 				Gucci Savoy medium trolley</p>
 			<button class="text-uppercase btn-products py-2 mt-4 px-5"
