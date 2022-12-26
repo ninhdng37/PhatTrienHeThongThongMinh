@@ -1,2 +1,2 @@
 # PhatTrienHeThongThongMinh
-Drive báo cáo: https://docs.google.com/document/d/1JLIqUBfL45i8ZlVLHscLqSdguGXHzMe3/edit?usp=sharing&ouid=100752919679705649395&rtpof=true&sd=true
+Drive báo cáo: https://docs.google.com/document/d/1WSoKwfrQr_IptH06lCwgZ-RyeVvm2TYT/edit?usp=drive_web&ouid=114319818460459579696&rtpof=true
