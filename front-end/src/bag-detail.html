@@ -121,20 +121,15 @@
             <div class="quantity-and-total-money">
               <span class="quantity-span">
                 <label for="select-quantity">QTY:</label>
-                <select
+                <input
+                  type="number"
+                  min="1"
+                  class="form-control select-size no-radius"
+                  data-quantity-id="1"
                   id="select-quantity"
-                  class="form-select select-size no-radius"
-                  aria-label="Default select example"
-                >
-                  <option selected value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                </select>
+                />
               </span>
-
-              <span class="total-money">C$ 1,000</span>
+              <span class="total-money" id="1" data-value="1000">C$ 1000</span>
             </div>
           </li>
           <li>
@@ -159,20 +154,15 @@
             <div class="quantity-and-total-money">
               <span class="quantity-span">
                 <label for="select-quantity">QTY:</label>
-                <select
+                <input
+                  type="number"
+                  min="1"
+                  class="form-control select-size no-radius"
+                  data-quantity-id="2"
                   id="select-quantity"
-                  class="form-select select-size no-radius"
-                  aria-label="Default select example"
-                >
-                  <option selected value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                </select>
+                />
               </span>
-
-              <span class="total-money">C$ 1,000</span>
+              <span class="total-money" id="2" data-value="2000">C$ 2000</span>
             </div>
           </li>
         </ul>
@@ -183,7 +173,7 @@
           <div class="order-detail">
             <div class="detail-container">
               <span class="subtotal">Subtotal</span>
-              <span class="value">C$ 2,000</span>
+              <span class="value" id="subtotal-money-element">C$ 2000</span>
             </div>
             <div class="detail-container">
               <span class="shipping">Shipping</span>
@@ -193,7 +183,7 @@
             </div>
             <div class="detail-container">
               <span class="estimated-total">Estimated Total</span>
-              <span class="total-money">C$ 2,000</span>
+              <span class="total-money" id="total-money-element">C$ 2000</span>
             </div>
           </div>
         </div>
@@ -226,7 +216,7 @@
 
     <script>
       $(document).ready(function () {
-        $(".owl-carousel").owlCarousel({
+        $('.owl-carousel').owlCarousel({
           center: true,
           items: 1,
           loop: true,
@@ -244,5 +234,30 @@
     </script>
     <script src="./scripts/sticky-nav.js"></script>
     <script src="./scripts/popover.js"></script>
+    <script>
+      const inputQuantities = $('[data-quantity-id]');
+      const totalMoneySpans = $('[data-value]');
+      const subTotalElement = $('#subtotal-money-element')[0];
+      const totalMoneyElement = $('#total-money-element')[0];
+      console.log(inputQuantities);
+
+      inputQuantities.on('input', function (e) {
+        console.log(e.target.value);
+        const id = e.target.getAttribute('data-quantity-id');
+        const getTotalMoneySpan = totalMoneySpans.filter(`#${id}`);
+        const money = getTotalMoneySpan.attr('data-value');
+        getTotalMoneySpan.text(`C$ ${money * e.target.value}`);
+        console.log(`money: ${money}`);
+
+        let totalMoney = 0;
+        totalMoneySpans.each((index, element) => {
+          const money = Number.parseInt(element.textContent.substring(3));
+          totalMoney += money;
+        });
+        console.log(`totalMoney: ${totalMoney}`);
+        subTotalElement.textContent = `C$ ${totalMoney}`;
+        totalMoneyElement.textContent = `C$ ${totalMoney}`;
+      });
+    </script>
   </body>
 </html>

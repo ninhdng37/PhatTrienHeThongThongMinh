@@ -146,6 +146,7 @@
 #select-quantity {
   display: inline-block;
   margin-left: 0.3rem;
+  max-width: 100px;
 }
 
 #items-section .total-money {
