@@ -17,5 +17,11 @@ public class CTHDServiceImpl implements CTHDService {
 		// TODO Auto-generated method stub
 		return cthdRepository.getLayDSCTHD(masothue);
 	}
-
+	@Override
+	public void addCTHD(Cthd ct) {
+		// TODO Auto-generated method stub
+		cthdRepository.save(ct);
+	}
+	
+	
 }

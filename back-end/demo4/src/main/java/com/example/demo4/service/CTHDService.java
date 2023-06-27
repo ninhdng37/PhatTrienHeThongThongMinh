@@ -6,4 +6,5 @@ import com.example.demo4.entity.Cthd;
 
 public interface CTHDService {
     List<Cthd> getLayDSCTHD(String masothue);
+    void addCTHD(Cthd ct);
 }

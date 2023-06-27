@@ -54,10 +54,6 @@ public class Apriori {
 
 	public List<Mathang> Apriori(String masothue) {
         Integer kiemtra=hoaDonService.getLaySP_KIEMTRAHD(masothue);
-//        if (kiemtra==0) {
-//			List<Mathang> mathangs=new ArrayList<Mathang>();
-//			return null;
-//		}
 		List<Cthd> listcthd = cthdService.getLayDSCTHD(masothue);
 		List<Hoadon> listhoadon = hoaDonService.getLayDSHD(masothue);
 		List<Mathang> listmathangAll = mathangService.getLayDSSP(masothue);
@@ -76,21 +72,6 @@ public class Apriori {
 		LOADDATA(listhoadon, listcthd, data);
 		foundFrequentItemSet(data, frequentItemSet, Location, itemAll);
 		foundLawDetermination(data, frequentItemSet, itemHistory, finaly, Location);
-//		System.out.println(finaly.size());
-//		for (String s : finaly)
-//			System.out.println(s);
-		// System.out.println("Phong");
-//		for(int i = 0; i < 100; i++)
-//		{
-//			if(frequentItemSet[i][0] == null) break;
-//			for (int j  = 0; j < 100; j++) {
-//				if(frequentItemSet[i][j] == null)
-//					break;
-//				System.out.println(frequentItemSet[i][j]);
-//			}
-//			System.out.println("Phong");
-//		}
-
 		List<Mathang> listmathang = new ArrayList<Mathang>();
 		List<Double> avgList = new ArrayList<Double>();
 		for (int i = 0; i < sizeCustomer; i++) {
@@ -162,12 +143,6 @@ public class Apriori {
 					}
 			}
 		}
-//		System.out.println("In list mat hang");
-
-//		for(Mathang mathang : listmathang) {
-//		System.out.println(mathang.getMamh());
-//		}
-//		System.out.println("ket thuc list mat hang");
 		return listmathang;
 
 	}
